@@ -24,7 +24,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       }, 30000)
     })
     conn.version = global.conn.version
-    conn.browserDescription = ['Server by Kanna-Bot','Deskop','3.0']
+    conn.browserDescription = ['Yandex','Deskop','3.0']
     conn.welcome = global.conn.welcome + ''
     conn.bye = global.conn.bye + ''
     conn.spromote = global.conn.spromote + ''
