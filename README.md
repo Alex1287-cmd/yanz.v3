@@ -13,11 +13,11 @@
 <a href="https://github.com/Kannachann/kanna-wabot/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/Kannachann/kanna-wabot?label=PullRequest&color=success&style=flat-square"></a>
 <a href="https://github.com/Kannachann/kanna-wabot/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/Kannachann/kanna-wabot?label=PullRequest&color=red&style=flat-square"></a>
 
-## FOR DEPLOY HEROKU USER
+ FOR DEPLOY HEROKU USER
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Lord-Ammar/REST-FREE)
 
-# Heroku Buildpack
+ Heroku Buildpack
 
 | BuildPack | LINK |
 |--------|--------|
@@ -26,11 +26,11 @@
 | **Node.js [salin]**     | heroku/nodejs|
 
 
-## FOR DEPLOY RAILWAY USER
+ FOR DEPLOY RAILWAY USER
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FKangsad01%2FWabot-Tsb01)
 
-## FOR DEPLOY REPLIT USER
+ FOR DEPLOY REPLIT USER
 
 [![Run on Repl.it](https://repl.it/badge/github/FadliDarmawan/haruno)](https://repl.it/github/Yanzz-Bot/Lord-BotV3/)
 ```cmd
@@ -43,12 +43,12 @@ Open Console
 -------------
 Click Run
 ```
-## Whatsapp
+ Whatsapp
 
 [![WhatsApp Me](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6288287810316/)
 [![Whatsapp BOT](https://img.shields.io/badge/WhatsApp%20BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6282186172016/)
 
-## UNTUK PENGGUNA WINDOWS/VPS/RDP
+ UNTUK PENGGUNA WINDOWS/VPS/RDP
 
 * Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
 * Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
@@ -65,7 +65,7 @@ node .
 
 ---------
 
-## UNTUK PENGGUNA TERMUX
+ UNTUK PENGGUNA TERMUX
 ```bash
 termux-setup-storage
 pkg install git
@@ -81,24 +81,24 @@ npm start
 
 ---------
 
-## Arguments `node . [--options] [<session name>]`
+ Arguments `node . [--options] [<session name>]`
 
-#### Contoh: `node . --self --restrict --autoread`
+  Contoh: `node . --self --restrict --autoread`
 
-### `--self`
+ `--self`
 
 Aktifkan mode self (Mengabaikan yang lain)
 
-### `--prefix <prefixes>`
+ `--prefix <prefixes>`
 
 * `prefixes` dipisahkan oleh masing-masing karakter
 Setel awalan
 
-### `--server`
+ `--server`
 
 Digunakan untuk [heroku](https://heroku.com/) atau pindai melalui situs web
 
-### `--db <json-server-url>`
+ `--db <json-server-url>`
 
 Gunakan db eksternal alih-alih db lokal, 
 Contoh Server `https://json-server.nurutomo.repl.co/`
@@ -108,14 +108,14 @@ Code: `https://repl.it/@Nurutomo/json-server`
 
 Server harus memiliki spesifikasi seperti ini
 
-#### GET
+ GET
 
 ```http
 GET /
 Accept: application/json
 ```
 
-#### POST
+ POST
 
 ```http
 POST /
@@ -126,39 +126,39 @@ Content-Type: application/json
 }
 ```
 
-### `--big-qr`
+ `--big-qr`
 
 Jika qr unicode kecil tidak mendukung
 
-### `--restrict`
+ `--restrict`
 
 Mengaktifkan plugin terbatas (yang dapat menyebabkan nomor Anda **diblokir** jika digunakan terlalu sering)
 
 * Administrasi Grup `add, kick, promote, demote`
 
-### `--img`
+ `--img`
 
 Aktifkan pemeriksa gambar melalui terminal
 
-### `--autoread`
+ `--autoread`
 
 Jika diaktifkan, semua pesan masuk akan ditandai sebagai telah dibaca
 
-### `--nyimak`
+ `--nyimak`
 
 Tidak ada bot, cukup cetak pesan yang diterima dan tambahkan pengguna ke database
 
-### `--test`
+ `--test`
 
 **Development** Testing Mode
 
-### `--trace`
+ `--trace`
 
 ```js
 conn.logger.level = 'trace'
 ```
 
-### `--debug`
+ `--debug`
 
 ```js
 conn.logger.level = 'debug'
@@ -166,9 +166,4 @@ conn.logger.level = 'debug'
 
 ---------
 
- [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) | [![Ariffb](https://github.com/ariffb25.png?size=100)](https://github.com/ariffb25) | [![Kannachann](https://github.com/Kannachann.png?size=100)](https://github.com/Kannachann) | [![Yanzz-Bot](https://github.com/Yanzz-Bot.png?size=100)](https://github.com/Yanzz-Bot)
-----|----|----
 
-[Nurutomo](https://github.com/Nurutomo) | [Ariffb](https://github.com/ariffb25) | [Kannachann](https://github.com/Kannachann) | [Yanzz-Bot](https://github.com/Yanz-Bot)
-
- Penulis / Pencipta | Penulis ulang Ke-1 | Penulis ulang Ke-2 | Penulis ulang Ke-3
