@@ -167,3 +167,7 @@ conn.logger.level = 'debug'
 ---------
 
 
+[![Yanzz-Bot](https://github.com/Yanzz-Bot.png?size=100)](https://github.com/Yanzz-Bot) | [![Zivfurr](https://github.com/Colindonesia.png?size=100)](https://github.com/Colindonesia) 
+----|----|
+[Yanzz-Bot](https://github.com/Yanzz-Bot) | [Zivfurr](https://github.com/Colindonesia) 
+ Creator | Partner
