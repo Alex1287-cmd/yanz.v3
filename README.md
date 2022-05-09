@@ -56,8 +56,8 @@ Click Run
 * Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/Yanzz-Bot/Yanzz-V2
-cd Yanzz-V2
+git clone https://github.com/Yanzz-Bot/Yanzz-V3
+cd Yanzz-V3
 npm i
 npm update
 node .
@@ -73,13 +73,23 @@ pkg install nodejs
 pkg install ffmpeg
 pkg install imagemagick
 pkg install libwebp
-git clone https://github.com/Yanzz-Bot/Yanzz-V2
-cd Yanzz-V2
-npm install -g npm@6.14.14
-npm start
+git clone https://github.com/Yanzz-Bot/Yanzz-V3
+cd Yanzz-V3
+npm i
+npm update
+node .
 ```
 
 ---------
+ UNTUK PENGGUNA GOOGLE SHELL
+```bash
+git clone git clone https://github.com/Yanzz-Bot/Yanzz-V3
+cd Yanzz-V3
+npm i && npm update && node .
+```
+
+---------
+
 
  Arguments `node . [--options] [<session name>]`
 
