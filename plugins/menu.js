@@ -11,32 +11,31 @@ const chats = conn.chats.all()
 const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before: `
-〓〓〓〓〓 *U S E R S* 〓〓〓〓
-➺ *Name:* %name
-➺ *Premium:* %prems
-➺ *Age:* %age
-➺ *Limit:* %limit
-➺ *Money:* %money
-➺ *Role:* %role
-➺ *Level:* %level [%xp4levelup]
-➺ *Xp:* %exp / %maxexp
-➺ *Total Xp:* %totalexp
+〓〓〓〓 𝚄 𝚂 𝙴 𝚁 𝚂 〓〓〓〓
+➺ 𝙽𝚊𝚖𝚎: %name
+➺ 𝙿𝚛𝚎𝚖𝚒𝚞𝚖: %prems
+➺ 𝙰𝚐𝚎: %age
+➺ 𝙻𝚒𝚖𝚒𝚝: %limit
+➺ 𝙼𝚘𝚗𝚎𝚢: %money
+➺ 𝚁𝚘𝚕𝚎: %role
+➺ 𝙻𝚎𝚟𝚎𝚕: %level [%xp4levelup]
+➺ 𝚇𝚙: %exp / %maxexp
+➺ 𝚃𝚘𝚝𝚊𝚕 𝚇𝚙: %totalexp
 
-〓〓〓〓〓  *T O D A Y* 〓〓〓〓
+〓〓〓〓 𝚃 𝙾 𝙳 𝙰 𝚈 〓〓〓〓
 ➺ ${ucapan()}
-➺ *Tanggal:* %week %weton, %date
-➺ *Tanggal Islam:* %dateIslamic
-➺ *Waktu:* %time
+➺ 𝚃𝚊𝚗𝚐𝚐𝚊𝚕: %week %weton, %date
+➺ 𝚃𝚊𝚗𝚐𝚐𝚊𝚕 𝙸𝚜𝚕𝚊𝚖: %dateIslamic
+➺ 𝚆𝚊𝚔𝚝𝚞: %time
 
-〓〓〓〓〓 *I N F O* 〓〓〓〓
-➺ *Nama Bot:* Yanz Bot
-➺ *Platform:* %platform
-➺ *Merk Hp:* Realme
-➺ *Uptime:* %muptime
-➺ *Database:* %rtotalreg dari %totalreg
+〓〓〓〓 𝙸 𝙽 𝙵 𝙾 〓〓〓〓
+➺ 𝙽𝚊𝚖𝚊 𝙱𝚘𝚝: 𝚈𝚊𝚗𝚣𝚣 𝙱𝚘𝚝
+➺ 𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖: %platform
+➺ 𝙼𝚎𝚛𝚔 𝙷𝚙: Realme
+➺ 𝚄𝚙𝚝𝚒𝚖𝚎: %muptime
+➺ 𝙳𝚊𝚝𝚊𝚋𝚊𝚜𝚎: %rtotalreg dari %totalreg
 
-〓〓〓〓〓 *C O M M A N D* 〓〓〓〓
-
+〓〓〓〓 𝙲 𝙾 𝙼 𝙼 𝙰 𝙽 𝙳 〓〓〓〓
 %readmore`.trimStart(),
   header: '╭─〔 *%category* 〕─⬣\n┴',
   body: '│⬡ %cmd %islimit %isPremium',
@@ -54,7 +53,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     let uptime = clockString(_uptime)
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'edukasi', 'news', 'nsfw', 'xp', 'stiker', 'image', 'anime', 'kerangajaib', 'quotes', 'admin', 'rpg', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'vote', 'tanpakategori', 'owner', 'gift', 'thnks']
+  let arrayMenu = ['all', 'game', 'edukasi', 'news', 'nsfw', 'xp', 'stiker', 'image', 'anime', 'kerangajaib', 'quotes', 'admin', 'rpg', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'vn', 'sound', 'vote', 'tanpakategori', 'owner', 'gift', 'thnks']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
@@ -82,7 +81,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'sticker': 'Stiker',
     'nulis': 'MagerNulis & Logo',
     'audio': 'Pengubah Suara',
+    'sound': 'Sound',    
     'downloader': 'Downloader',
+    'vn': 'Voice Note Imut',
     'tools': 'Tools',
     'database': 'Database',
     'jadibot': 'Jadi Bot',
@@ -180,6 +181,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'tanpakategori') tags = {
     '': 'Tanpa Kategori'
   }
+  if (teks == 'vn') tags = {
+    'vn': 'Voice Note Imut'
+    }
+  if (teks == 'sound') tags = {
+    'sound': 'Sound'
+  }
   if (teks == 'thnks') tags = {
     'thnks': 'THANKS TO'
   }
@@ -249,27 +256,27 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     if (teks == '404') {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
-          "title": `✧────────···[ Dashboard ]···─────────✧`.trim(),
+          "title": `✧──────···[ 𝙳𝚊𝚜𝚑𝚋𝚘𝚊𝚛𝚍 ]···───────✧`.trim(),
           "description": `${ucapan()}, ${name} !`.trim(),
           "footerText": `╭━━━━━━━━━━━━━━━━┈─✧
-│⬡ Aktif selama ${uptime}
-│⬡ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-│⬡ ${Object.keys(global.db.data.users).length} Pengguna
-│⬡ ${totaljadibot.length} Jadibot
-│⬡ ${conn.blocklist.length} Terblock
-│⬡ ${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length} Chat Terbanned
-│⬡ ${Object.entries(global.db.data.users).filter(user => user[1].banned).length} Pengguna Terbanned
+│⬡ 𝙰𝚔𝚝𝚒𝚏 𝚂𝚎𝚕𝚊𝚖𝚊 ${uptime}
+│⬡ 𝙱𝚊𝚝𝚎𝚛𝚊𝚒 ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+│⬡ ${Object.keys(global.db.data.users).length} 𝙿𝚎𝚗𝚐𝚐𝚞𝚗𝚊
+│⬡ ${totaljadibot.length} 𝙹𝚊𝚍𝚒𝚋𝚘𝚝
+│⬡ ${conn.blocklist.length} 𝚃𝚎𝚛𝚋𝚕𝚘𝚌𝚔
+│⬡ ${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length} 𝙲𝚑𝚊𝚝 𝚃𝚎𝚛𝚋𝚊𝚗𝚗𝚎𝚍
+│⬡ ${Object.entries(global.db.data.users).filter(user => user[1].banned).length} 𝙿𝚎𝚗𝚐𝚐𝚞𝚗𝚊 𝚃𝚎𝚛𝚋𝚊𝚗𝚗𝚎𝚍
 ╰━━━━━━━━━━━━━━━━┈─◂
      ▌│█║▌║▌║║▌║▌║█│▌
      
         ${week}, ${date}`,
-          "buttonText": "Click Here!",
+          "buttonText": "𝙲𝚕𝚒𝚌𝚔 𝙷𝚎𝚛𝚎!",
           "listType": "SINGLE_SELECT",
           "sections": [
                             {
                                 "rows": [{
                                          "title": "[📊] Status",
-                                         "description": "Status Kanna Bot",
+                                         "description": "Status Bot",
                                          "rowId": ".botstat"
                                     }, {
                                          "title": "[⚡] Speed",
@@ -374,39 +381,47 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Menulis & Membuat Logo",
                   "rowId": ".? nulis"
                 }, {
-                  "title": "Menu 22 |📥|",
-                  "description": "Downloader",
-                  "rowId": ".? downloader"
+                  "title": "Menu 22 |🎶|",
+                  "description": "Sound",
+                  "rowId": ".? sound"                
                 }, {
-                  "title": "Menu 23 |🧰|",
+                  "title": "Menu 23 |📥|",
+                  "description": "Downloader",
+                  "rowId": ".? downloader"                
+                }, {
+                  "title": "Menu 24 |🎧|",
+                  "description": "Voice Note Imut",
+                  "rowId": ".? vn"
+                }, {
+                  "title": "Menu 25 |🧰|",
                   "description": "Tools",
                   "rowId": ".? tools"
                 }, {
-                  "title": "Menu 24 |📂|",
+                  "title": "Menu 26 |📂|",
                   "description": "Database",
                   "rowId": ".? database"
                 }, {
-                  "title": "Menu 25 |🗳️|",
+                  "title": "Menu 27 |🗳️|",
                   "description": "Vote & Absen",
                   "rowId": ".? vote"
                 }, {
-                  "title": "Menu 26 |🎙️|",
+                  "title": "Menu 28 |🎙️|",
                   "description": "Voice Changer",
                   "rowId": ".? audio"
                 }, {
-                  "title": "Menu 27 |🤖|",
+                  "title": "Menu 29 |🤖|",
                   "description": "Jadibot",
                   "rowId": ".? jadibot"
                 }, {
-                  "title": "Menu 28 |ℹ️|",
+                  "title": "Menu 30 |ℹ️|",
                   "description": "Info",
                   "rowId": ".? info"
                 }, {
-                  "title": "Menu 29 |❓|",
+                  "title": "Menu 31 |❓|",
                   "description": "No Category",
                   "rowId": ".? tanpakategori"
                 }, {
-                  "title": "Menu 30 | 🧑‍💻|",
+                  "title": "Menu 32 | 🧑‍💻|",
                   "description": "Owner",
                   "rowId": ".? owner"
                 }],
@@ -522,7 +537,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     // await conn.send3ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), '🎮 Ƙαɴɴα вσт', 'Owner', '.owner', 'Donasi', '.donasi', 'Rules', '.infobot', m)
-    //await conn.send3ButtonLoc(m.chat, logo, '──────────[ *DASHBOARD* ]──────────', text.trim(), 'Owner', '.nowner', 'Donasi', '.donasi', 'Rules', '.rules', m)
+    await conn.send3ButtonLoc(m.chat, logo, '──────────[ *DASHBOARD* ]──────────', text.trim(), 'Owner', '.nowner', 'Donasi', '.donasi', 'Rules', '.rules', m)
     let nama = await conn.getName(m.sender)
     let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 
@@ -532,7 +547,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   kannaImg = (await conn.prepareMessage('0@s.whatsapp.net', kanna, MessageType.image, { thumbnail: Buffer.alloc(0) })).message.imageMessage
   sumberImg = await (await fetch(fla + teks + ' menu')).buffer()
   image = (await conn.prepareMessage('0@s.whatsapp.net', logo2, MessageType.image, { thumbnail: Buffer.alloc(0) })).message.imageMessage
-  res = await conn.prepareMessageFromContent(m.chat, {
+  /*res = await conn.prepareMessageFromContent(m.chat, {
     "productMessage": {
       "product": {
         "productImage": image,
@@ -552,7 +567,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     }
   },
     { quoted: fkon })
-  conn.relayWAMessage(res)
+  conn.relayWAMessage(res)*/
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
