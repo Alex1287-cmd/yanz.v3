@@ -12,17 +12,29 @@ let handler = async (m, { conn }) => {
     let username = conn.getName(who)
     let str = `
 
-✧──────────[ *PROFILE* ]──────────✧
-📇 • *Name:* ${username} ${registered ? '(' + name + ') ': ''}
-📧 • *Tag:* @${who.replace(/@.+/, '')}
-📞 • *Number:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-💻 • *Link:* https://wa.me/${who.split`@`[0]}
+┌───❑〘 *P R O F I L E* 〙─────
+│📇 Nama : ${username} ${registered ? '(' + name + ') ': ''} 
+│📧 Tag : @${who.replace(/@.+/, '')}
+│📞 Number : ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
+│💻 Api : https://wa.me/${who.split`@`[0]}
 ${registered ? '🎨 • *Age:* ' + age : ''}
 ${about ? '🗒️ • *About:* ' + about : ''}
-
-🌟 • *Premium:* ${premium ? "✅" :"❌"}
-📑 • *Registered:* ${registered ? '✅': '❌'}
-⛔ • *Banned:* ❌
+├───────────────────⬡
+│💹 Limit :${limit}
+│💱 Role : ${role}
+│🏧 Level : ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Siap untuk *${usedPrefix}levelup*` : `${math} XP lagi untuk levelup`}]
+│🏦 Xp : ${level}
+├───────────────────⬡
+│🌟 Premium : ${premium ? "Ya✔" :"Tidak❌"}
+│👨‍ Register : ${registered ? 'Ya✔ (' + new Date(regTime).toLocaleString() + ')' : 'Tidak❌'}${lastclaim > 0 ? '\nTerakhir Klaim: ' + new Date(lastclaim).toLocaleString() : ''}
+└───────────────────⬡
+╭─────────────────
+│Note: 
+│➥ Gunakan Bot Secukupnya!
+│➥ Gunakan Bot Dengan Bijak!
+│➥ Jangan Call/Vc Bot!
+│➥ Demi Kenyamanan Bersama!
+╰──────────────────
 
 `.trim()
     let mentionedJid = [who]
