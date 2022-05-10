@@ -1,47 +1,52 @@
-/*const { MessageType } = require('@adiwajshing/baileys')
-const PhoneNumber = require('awesome-phonenumber')
-async function handler(m) {
-  let name = 'ᴏωɴᴇŗ LordBot あ'
-  number = owner[0].replace(/[^0-9]/g, '')
-  let njid = number + '@s.whatsapp.net'
-  let onW = await this.isOnWhatsApp(njid) || { isBusiness: false }
-
-  let name2 = '๑ོLord ʙσţ๑'
-  number2 = owner[1].replace(/[^0-9]/g, '')
-  let njid2 = number2 + '@s.whatsapp.net'
-  let onW2 = await this.isOnWhatsApp(njid2) || { isBusiness: false }
-
-  this.sendMessage(m.chat, {
-    contacts: [{
-      displayname: name, vcard: `
-BEGIN:VCARD
-VERSION:3.0
-N:;${name.replace(/\n/g, '\\n')};;;
-FN:${name.replace(/\n/g, '\\n')}
-TEL;type=CELL;type=VOICE;waid=${number}:${PhoneNumber('+' + number).getNumber('international')}${onW.isBusiness ? `
-X-WA-BIZ-NAME:${(this.contacts[njid].vname || this.getName(njid)).replace(/\n/, '\\n')}
-X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid)).description || '').replace(/\n/g, '\\n')}
-` : ''}
-END:VCARD
-`.trim()
-    }, {
-      displayname: name2, vcard: `
-BEGIN:VCARD
-VERSION:3.0
-N:;${name2.replace(/\n/g, '\\n')};;;
-FN:${name2.replace(/\n/g, '\\n')}
-TEL;type=CELL;type=VOICE;waid=${number2}:${PhoneNumber('+' + number2).getNumber('international')}${onW2.isBusiness ? `
-X-WA-BIZ-NAME:${(this.contacts[njid2].vname || this.getName(njid2)).replace(/\n/, '\\n')}
-X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid2)).description || '').replace(/\n/g, '\\n')}
-` : ''}
-END:VCARD
-`.trim()
-    }]
-  }, MessageType.contactsArray, { quoted: m })
+let fs = require('fs')
+let moment = require('moment-timezone')
+let img1 = fs.readFileSync('./src/umbreon.jpg')
+let handler = async function (m) {
+	const fakegrup = {
+	key : {
+fromMe: false,
+participant : '0@s.whatsapp.net',
+remoteJid: 'status@broadcast'
+},
+       message: {
+                    orderMessage: {
+                            itemCount : 999,
+                            status: 1,
+                            surface : 1,
+                            message: 'Ini Kak Owner Ku OωO', //Kasih namalu
+                            orderTitle: ``,
+                            thumbnail: img1, //Gambarnye
+                            sellerJid: '0@s.whatsapp.net' 
+                          }
+          }
+}
+let list = []
+  for (let i of owner.map(v => v + '@s.whatsapp.net')) {
+  list.push({
+            "displayName": this.getName(i),
+            "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;;\nFN:${this.getName(i)}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:📍 Creator Ynz Bot\nitem2.EMAIL;type=INTERNET:YanzBotz@gmail.com\nitem2.X-ABLabel:💌 Email\nitem3.URL: Only You\nitem3.X-ABLabel:📮 Rest Api\nitem4.ADR:;;🇮🇩 Indonesia;;;;\nitem4.X-ABADR:ac\nitem4.X-ABLabel:🌍 Provinsi | Sumatera Barat\nitem5.X-ABLabel:──────[ Yᴀɴᴢ Bᴏᴛᴢ ]──────\nEND:VCARD`
+          })
+  }
+        test = await this.sendMessage(m.chat, {
+        "displayName": `${list.length} Contact`,
+        "contacts": list 
+        }, 'contactsArrayMessage', { quoted: fakegrup })
+          let buttons = [
+  {buttonId: '#menu', buttonText: {displayText: 'Menu'}, type: 1},
+  {buttonId: '#donasi', buttonText: {displayText: 'Donasi'}, type: 1},
+]
+const buttonsMessage = {
+    contentText: `
+Donasi/Sewa? Chat Owner
+`.trim(),    footerText: ``,
+    buttons: buttons,
+  headerType: 'EMPTY'
+}
+conn.sendMessage(m.chat, buttonsMessage, 'buttonsMessage', { quoted: test})
 }
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
 
-handler.command = /^(nowner)$/i
+handler.command = /^(owner|creator)$/i
 
-module.exports = handler */
+module.exports = handler
