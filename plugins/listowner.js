@@ -1,12 +1,2 @@
-let fs = require('fs')
-let handler = async (m, { conn, isOwner }) => {
-  let prem = global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)
-  conn.reply(m.chat, `┌〔 Daftar Owner 〕` + `\n` + owner.map(v => isOwner ? '├ @' + v.replace(/@.+/, '') : '│ ' + conn.getName(v)).join`\n` + '\n└────', m, { contextInfo: { mentionedJid: prem } })
-}
-handler.help = ['premlist']
-handler.tags = ['owner']
-handler.command = /^(listowner|ownerlist)$/i
-
-handler.owner = true
-
-module.exports = handler
+//no enc? Beli sama Yanz
+function _0x18ca(_0x43a86a,_0x5a8c75){const _0x113f65=_0x113f();return _0x18ca=function(_0x18caa6,_0x365673){_0x18caa6=_0x18caa6-0x155;let _0x741331=_0x113f65[_0x18caa6];return _0x741331;},_0x18ca(_0x43a86a,_0x5a8c75);}const _0x4a81fd=_0x18ca;(function(_0x581287,_0xb73fc5){const _0x3fcca8=_0x18ca,_0x5430c6=_0x581287();while(!![]){try{const _0x10ce48=-parseInt(_0x3fcca8(0x15b))/0x1*(parseInt(_0x3fcca8(0x168))/0x2)+-parseInt(_0x3fcca8(0x16a))/0x3+parseInt(_0x3fcca8(0x162))/0x4*(parseInt(_0x3fcca8(0x169))/0x5)+-parseInt(_0x3fcca8(0x16b))/0x6+-parseInt(_0x3fcca8(0x15f))/0x7+-parseInt(_0x3fcca8(0x16c))/0x8*(parseInt(_0x3fcca8(0x166))/0x9)+parseInt(_0x3fcca8(0x158))/0xa*(parseInt(_0x3fcca8(0x155))/0xb);if(_0x10ce48===_0xb73fc5)break;else _0x5430c6['push'](_0x5430c6['shift']());}catch(_0xe74a3b){_0x5430c6['push'](_0x5430c6['shift']());}}}(_0x113f,0xd5fbc));let fs=require('fs'),handler=async(_0x57eea7,{conn:_0x17c0ff,isOwner:_0x5a57e8})=>{const _0x21dd84=_0x18ca;let _0x142069=global[_0x21dd84(0x156)][_0x21dd84(0x15a)](_0x47aae0=>_0x47aae0[_0x21dd84(0x15d)](/[^0-9]/g,'')+'@s.whatsapp.net')[_0x21dd84(0x15c)](_0x296ca9=>_0x296ca9!=_0x17c0ff[_0x21dd84(0x16d)][_0x21dd84(0x161)]);_0x17c0ff[_0x21dd84(0x165)](_0x57eea7['chat'],_0x21dd84(0x15e)+'\x0a'+owner[_0x21dd84(0x15a)](_0x2138dc=>_0x5a57e8?'â”œ\x20@'+_0x2138dc[_0x21dd84(0x15d)](/@.+/,''):'â”‚\x20'+_0x17c0ff[_0x21dd84(0x159)](_0x2138dc))[_0x21dd84(0x167)]`\n`+'\x0aâ””â”€â”€â”€â”€',_0x57eea7,{'contextInfo':{'mentionedJid':_0x142069}});};function _0x113f(){const _0x5c7451=['87280ktfIrT','4397547uljVfI','3892482sWLNdF','601816GSHiek','user','243980xGrdJq','owner','tags','2930vNTEFY','getName','map','3833jKHBQW','filter','replace','â”Œã€”\x20Daftar\x20Owner\x20ã€•','6349476tYPxCN','exports','jid','68KanBtp','premlist','help','reply','171antGYT','join','766PuYoIN'];_0x113f=function(){return _0x5c7451;};return _0x113f();}handler[_0x4a81fd(0x164)]=[_0x4a81fd(0x163)],handler[_0x4a81fd(0x157)]=['info'],handler['command']=/^(listowner|ownerlist)$/i,handler[_0x4a81fd(0x156)]=!![],module[_0x4a81fd(0x160)]=handler;

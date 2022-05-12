@@ -1,25 +1,18 @@
 let { MessageType } = require('@adiwajshing/baileys')
 
 let handler = async (m, { conn }) => {
-    let wm = global.botwm
     let user = global.db.data.users[m.sender]
     let _timers = (2592000000 - (new Date - user.lastmonthly))
     let timers = clockString(_timers) 
     if (new Date - user.lastmonthly > 2592000000) {
-    let str = `+10000 money 💹\n+5 Legendary crate 🧰\n+3 Pet crate 📫\n+7 Iron ⛓\n+2 gold 🪙\n+7 string 🕸\n+10 kayu 🪵`
-        conn.send2Button(m.chat, str, wm, 'Claim', '.claim', 'Weekly', '.weekly',m)
-        conn.reply(str)
+        conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan 100000 💵money, 5 🎁Legendary crate dan 3 📦Pet crate`, m)
         user.money += 100000
         user.legendary += 5
-        user.string += 7
-        user.kayu += 10
-        user.iron += 7
-        user.gold += 2
         user.pet += 3
         user.lastmonthly = new Date * 1
     } else {
-        let buttons = button(`silahkan tunggu *🕒${timers}* lagi untuk bisa mengclaim lagi`, user)
-        conn.sendMessage(m.chat, buttons, MessageType.buttonsMessage, { quoted: m })
+        let buttons = `silahkan tunggu *🕒${timers}* lagi untuk bisa mengclaim lagi`.trim()
+        conn.sendButton(m.chat, buttons, '©Yanz💌', 'Daily', '#daily')
     }
 }
 handler.help = ['monthly']
@@ -41,8 +34,6 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
 
-let botol = global.botwm
-
 function button(teks, user) {
     const buttons = []
     
@@ -58,7 +49,7 @@ function button(teks, user) {
     
     const buttonMessage = {
         contentText: teks,
-        footerText: `${botol}`,
+        footerText: '©Yanz',
         buttons: buttons,
         headerType: 1
     }

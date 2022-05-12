@@ -9,7 +9,7 @@ let handler = async (m, { conn, args }) => {
    conn.sendMessage(m.chat, await getBuffer(result), 'documentMessage', { quoted: m, filename: `${args[0]}.pdf`, mimetype: 'application/pdf' })
 }
 handler.help = ['nhpdf'].map(v => v + ' <code>')
-handler.tags = ['nsfw']
+handler.tags = ['hentai']
 handler.command = /^(nhpdf)$/i
 handler.limit = 1
 module.exports = handler
