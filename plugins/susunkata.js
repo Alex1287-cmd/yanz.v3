@@ -15,17 +15,18 @@ let handler = async (m, { conn, usedPrefix }) => {
     let json = data[Math.floor(Math.random() * data.length)]
     let caption = `
 ${json.soal}
-*🏷️ Tipe:* ${json.tipe}
 
-*⏰ Timeout:* ${(timeout / 1000).toFixed(2)} detik
-*🎁 Bonus:* ${poin} XP
-*🔎 Hint:* ${usedPrefix}suka
+Tipe: ${json.tipe}
+
+Timeout *${(timeout / 1000).toFixed(2)} detik*
+Ketik ${usedPrefix}suka untuk bantuan
+Bonus: ${poin} XP
 `.trim()
     conn.susunkata[id] = [
-        await conn.sendButton(m.chat, caption, `${wm}`, 'Bantuan', '.suka'),
+        await conn.sendButton(m.chat, caption, 'Games ×͜×', 'Bantuan', '.suka'),
         json, poin,
         setTimeout(async () => {
-            if (conn.susunkata[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, `${wm}`, 'Susun Kata', '.susunkata')
+            if (conn.susunkata[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, 'Games ×͜×', 'Susun Kata', '.susunkata')
             delete conn.susunkata[id]
         }, timeout)
     ]
@@ -35,5 +36,3 @@ handler.tags = ['game']
 handler.command = /^susunkata/i
 
 module.exports = handler
-
-let wm = global.botwm

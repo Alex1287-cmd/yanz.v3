@@ -21,7 +21,6 @@ handler.help = ['stikermeme <teks atas>|<teks bawah>']
 handler.tags = ['sticker']
 handler.command = /^(s(tic?ker)?meme)$/i
 
-handler.premium = true
 handler.limit = true
 
 module.exports = handler

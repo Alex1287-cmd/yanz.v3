@@ -32,8 +32,7 @@ handler.help = ['stikertele <url>']
 handler.tags = ['sticker']
 handler.command = /^(stic?kertele(gram)?)$/i
 
-handler.premium = true
-handler.limit = false
+handler.limit = 1
 
 module.exports = handler
 

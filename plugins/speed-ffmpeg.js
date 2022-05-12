@@ -26,7 +26,7 @@ let handler = async (m, { conn, text }) => {
     }
 }
 handler.help = ['kecepatan']
-handler.tags = ['audio']
+handler.tags = ['tools']
 handler.command = /^(kecepatan)$/i
 handler.owner = false
 handler.mods = false

@@ -1,10 +1,5 @@
 let os = require('os')
 let util = require('util')
-let fetch = require('node-fetch')
-let fs = require('fs')
-let { MessageType } = require('@adiwajshing/baileys')
-let peli = fs.readFileSync('./sticker/Images1.jpg')
-let pelo = fs.readFileSync('./sticker/Images2.jpg')
 let { performance } = require('perf_hooks')
 let { sizeFormatter } = require('human-readable')
 let format = sizeFormatter({
@@ -14,10 +9,6 @@ let format = sizeFormatter({
   render: (literal, symbol) => `${literal} ${symbol}B`,
 })
 let handler = async (m, { conn }) => {
-	let tag = `@${m.sender.split('@')[0]}`
- m, { contextInfo: { mentionedJid: conn.parseMention(tag) }}
-	let waofc = `@${'0'.split('@')[0]}`
- m, { contextInfo: { mentionedJid: conn.parseMention(tag) }}
   const used = process.memoryUsage()
   const cpus = os.cpus().map(cpu => {
     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -43,55 +34,17 @@ let handler = async (m, { conn }) => {
       irq: 0
     }
   })
-  const ftrol = {
-    key : {
-    remoteJid: 'status@broadcast',
-    participant : '0@s.whatsapp.net'
-    },
-    message: {
-    orderMessage: {
-    itemCount : 2022,
-    status: 1,
-    surface : 1,
-    message: ` Speed`, 
-    orderTitle: `Menu `,
-    thumbnail: await (await fetch(fla + 'Ping')).buffer(), //Gambarnye
-    sellerJid: '0@s.whatsapp.net' 
-    }
-    }
-    }
   let old = performance.now()
-  await conn.reply(m.chat, 'L o a d i n g . . .', m)
+  await m.reply('_Testing speed..._')
   let neww = performance.now()
   let speed = neww - old
-  let ftr = `Verify By ${waofc}`
-    function kyun(seconds){
-  function pad(s){
-    return (s < 10 ? '0' : '') + s;
-  }
-  var hours = Math.floor(seconds / (60*60));
-  var minutes = Math.floor(seconds % (60*60) / 60);
-  var seconds = Math.floor(seconds % 60);
+  let txt = `
+Merespon dalam ${speed} millidetik
 
-  //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
-  return `_${speed} millidetik_
-${readMore}
- *Runtime:* ${pad(hours)}H ${pad(minutes)}M ${pad(seconds)}S
+💻 *Server Info* :
+RAM: ${format(os.totalmem() - os.freemem())} / ${format(os.totalmem())}
 
-[ *P H O N E  S T A T I S T I C* ]
-* Whatsapp V:* ${conn.user.phone.wa_version}
-* Ram:* ${format(os.totalmem() - os.freemem())} / ${format(os.totalmem())}
-* MCC:* ${conn.user.phone.mcc}
-* MNC:* ${conn.user.phone.mnc}
-* OS Version:* ${os.platform()} ${conn.user.phone.os_version}
-* Merk Hp:* ${conn.user.phone.device_manufacturer}
-* Versi Hp:* ${conn.user.phone.device_model}
-
-
-[ *S E R V E R  S T A T I S T I C* ]
-* RAM:* ${format(os.totalmem() - os.freemem())} / ${format(os.totalmem())}
-
-* NodeJS Memory Usage*
+_NodeJS Memory Usage_
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 
 ${cpus[0] ? `_Total CPU Usage_
@@ -99,19 +52,11 @@ ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type =>
 
 _CPU Core(s) Usage (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
-`
+`.trim()
+    await conn.sendButton(m.chat, txt, watermark, '⋮☰ BACK', '.menu', m)
 }
-runtime = process.uptime()
-					teks = `${kyun(runtime)}`
-conn.sendButton(m.chat, teks, ftr, 'INFO', '.info', ftrol, { contextInfo: { mentionedJid: conn.parseMention(ftr) }})
-}
-handler.help = ['speed','ping']
+handler.help = ['ping']
 handler.tags = ['info']
 
-handler.command = /^(speed|ping)$/i
+handler.command = /^(ping|speed)$/i
 module.exports = handler
-
-let wm = global.botwm
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4101)

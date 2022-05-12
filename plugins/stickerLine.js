@@ -28,7 +28,6 @@ handler.help = ['stikerline <url>']
 handler.tags = ['sticker']
 handler.command = /^(stic?kerline)$/i
 
-handler.premium = true
 handler.limit = true
 
 module.exports = handler
