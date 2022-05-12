@@ -1,4 +1,3 @@
-let wm = global.botwm
 let handler = async (m, { conn, text }) => {
   conn.hartatahta = conn.hartatahta ? conn.hartatahta : {}
   if (m.chat in conn.hartatahta) throw 'Masih ada yang sedang membuat\nTeks Harta Tahta\ndi chat ini... tunggu sampai selesai'
@@ -7,7 +6,7 @@ let handler = async (m, { conn, text }) => {
   m.reply('_Sedang membuat..._\n*Mohon tunggu sekitar 1 menit*')
   try {
     let img = await ht(text)
-    conn.sendFile(m.chat, img, 'Harta Tahta.png', `*${wm}*\nMade with FFmpeg`, m)
+    conn.sendFile(m.chat, img, 'Harta Tahta.png', '*© Nurutomo*\nMade with FFmpeg', m)
   } finally {
     delete conn.hartatahta[m.chat]
   }
@@ -25,7 +24,7 @@ let path = require('path')
 let src = path.join(__dirname, '../src/')
 let tmp = path.join(__dirname, '../tmp/')
 let _font = path.join(src, 'font')
-let aesthetic = path.join(src, 'Aesthetic')
+let aesthetic = path.join(src, 'Aestethic')
 function ht(text = '') {
   return new Promise((resolve, reject) => {
     let img = path.join(aesthetic, pickRandom(fs.readdirSync(aesthetic)))

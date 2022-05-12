@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
 handler.help = ['kickall']
 handler.tags = ['admin']
 handler.command = /^(kickall)$/i
-handler.mods = true
+handler.mods = false
 handler.group = true
 handler.botAdmin = true
 handler.fail = null

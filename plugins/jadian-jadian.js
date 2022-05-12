@@ -1,7 +1,5 @@
 /*//////////////////////////////////
-
     Di Upload Oleh Fokus Dot Id 
-
 /*////////////////////////////////*/
 
 let handler = async (m, { conn, usedPrefix, text }) => {

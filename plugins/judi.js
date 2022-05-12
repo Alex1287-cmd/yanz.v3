@@ -1,6 +1,5 @@
 let { MessageType } = require('@adiwajshing/baileys')
 
-let wm = global.botwm
 let confirm = {}
 
 async function handler(m, { conn, args, isROwner }) {
@@ -17,15 +16,15 @@ async function handler(m, { conn, args, isROwner }) {
                 count,
                 timeout: setTimeout(() => (m.reply('timed out'), delete confirm[m.sender]), 60000)
             }
-            let txt = '*❗ Warning ❗*\nJangan judi karena tidak akan menang, BENERAN!!\nApakah anda yakin  mau melakukan judi?\n⏲️ *Timeout* : 60s'
+            let txt = '⚠️Warning⚠️\n*Jangan judi karena tidak akan menang, BENERAN!!*\nApakah anda yakin (pikirkan baik-baik) mau melakukan judi (Y/n) (60s Timeout)'
             const buttons = [
-                {buttonId: `id1`, buttonText: {displayText: '✔️'}, type: 1},
-                {buttonId: `id2`, buttonText: {displayText: '✖️'}, type: 1}
+                {buttonId: `id1`, buttonText: {displayText: 'y'}, type: 1},
+                {buttonId: `id2`, buttonText: {displayText: 'n'}, type: 1}
             ]
 
             const buttonMessage = {
                 contentText: txt,
-                footerText: `${wm}`,
+                footerText: '©games-wabot',
                 buttons: buttons,
                 headerType: 1
             }
@@ -49,7 +48,7 @@ handler.before = async m => {
     let moneyDulu = user.money * 1
     let txt = (m.msg && m.msg.selectedDisplayText ? m.msg.selectedDisplayText : m.text ? m.text : '').toLowerCase()
     try {
-        if (/^(yes|ya|✔️)?$/i.test(txt)) {
+        if (/^y(es|a)?$/i.test(txt)) {
             let Bot = (Math.ceil(Math.random() * 100)) * 1
             let Kamu = (Math.floor(Math.random() * 86)) * 1
             let status = 'Kalah'
@@ -63,15 +62,15 @@ handler.before = async m => {
                 user.money += (Math.floor(count / 1.5)) * 1
             }
             m.reply(`
-🤖 *Bot roll:* ${Bot}
-👤 *Kamu roll:* ${Kamu}
+Bot roll: *${Bot}*
+Kamu roll: *${Kamu}*
 
-▸ Kamu *${status}*, kamu ${status == 'Menang' ? `Mendapatkan *+${count * 2}*` : status == 'Kalah' ? `Kehilangan *-${count * 1}*` : `Mendapatkan *+${Math.floor(count / 1.5)}*`} Money 💹
+Kamu *${status}*, kamu ${status == 'Menang' ? `Mendapatkan *+${count * 2}*` : status == 'Kalah' ? `Kehilangan *-${count * 1}*` : `Mendapatkan *+${Math.floor(count / 1.5)}*`} 💵Money
     `.trim())
             clearTimeout(timeout)
             delete confirm[m.sender]
             return !0
-        } else if (/^(no|tidak|ga|✖️)?$/i.test(txt)) {
+        } else if (/^no?$/i.test(txt)) {
             clearTimeout(timeout)
             delete confirm[m.sender]
             m.reply('Rejected')
@@ -130,7 +129,7 @@ function button(teks, user) {
     
     const buttonMessage = {
         contentText: teks,
-        footerText: `${wm}`,
+        footerText: '©games-wabot',
         buttons: buttons,
         headerType: 1
     }

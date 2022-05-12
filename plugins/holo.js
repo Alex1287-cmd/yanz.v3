@@ -13,9 +13,9 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
 	}) .catch(() => { conn.reply(m.chat, `*Terjadi kesalahan . . .*`, m) })
   			
 	}
-handler.help = ['holo', 'hololive']
+handler.help = ['holo']
 handler.tags = ['anime']
-handler.command = /^(holo|hololive)$/i
+handler.command = /^holo?$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
