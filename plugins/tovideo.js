@@ -17,7 +17,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
             '-shortest'
         ], 'mp3', 'mp4')
     }
-    await conn.sendFile(m.chat, out, 'out.mp4', wm, m, 0, { thumbnail: out })
+    await conn.sendFile(m.chat, out, 'out.mp4', 'Nah...', m, 0, { thumbnail: out })
 }
 handler.help = ['tovideo']
 handler.tags = ['sticker']
@@ -25,5 +25,3 @@ handler.tags = ['sticker']
 handler.command = ['tovideo']
 
 module.exports = handler
-
-let wm = global.botwm

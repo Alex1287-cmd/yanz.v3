@@ -4,13 +4,13 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     conn.game = conn.game ? conn.game : {}
     if (/leave|exit|keluar/i.test(command)) {
         delete conn.game[Object.values(conn.game).find(room => room.state === 'WAITING').id]
-        throw '[✔️] Berhasil keluar dari permainan'
+        throw '_Berhasil keluar dari permainan_'
     } else {
-        if (Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return conn.sendButton(m.chat, '_Kamu masih didalam game 🎯_', '', 'Keluar', '.tttexit', m)
+        if (Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return conn.sendButton(m.chat, '_Kamu masih didalam game_', '', 'Keluar', '.tttexit', m)
         let room = Object.values(conn.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
         // m.reply('[WIP Feature]')
         if (room) {
-            m.reply('[🔎] Partner ditemukan!')
+            m.reply('_Partner ditemukan!_')
             room.o = m.chat
             room.game.playerO = m.sender
             room.state = 'PLAYING'
@@ -30,21 +30,20 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                 }[v]
             })
             let str = `
-          🧩 *TICTACTOE GAME* 🧩
-🔭 *Room ID:* ${room.id}
-
+Room ID: ${room.id}
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
 
-💬 Menunggu @${room.game.currentTurn.split('@')[0]}
+Menunggu @${room.game.currentTurn.split('@')[0]}
+Ketik *nyerah* untuk nyerah
 `.trim()
-            if (room.x !== room.o) await conn.sendButton(room.x, str, wm, 'Nyerah', 'nyerah', m, {
+            if (room.x !== room.o) await conn.sendButton(room.x, str, '© stikerin', 'Nyerah', 'nyerah', m, {
                 contextInfo: {
                     mentionedJid: conn.parseMention(str)
                 }
             })
-            await conn.sendButton(room.o, str, wm, 'Nyerah', 'nyerah', m, {
+            await conn.sendButton(room.o, str, '© stikerin', 'Nyerah', 'nyerah', m, {
                 contextInfo: {
                     mentionedJid: conn.parseMention(str)
                 }
@@ -58,7 +57,7 @@ ${arr.slice(6).join('')}
                 state: 'WAITING'
             }
             if (text) room.name = text
-            m.reply('🔎 Menunggu partner' + (text ? ` _mengetik command dibawah ini_
+            m.reply('_Menunggu partner_' + (text ? ` _mengetik command dibawah ini_
 ${usedPrefix}${command} ${text}` : ''))
             conn.game[room.id] = room
         }
@@ -70,5 +69,3 @@ handler.tags = ['game']
 handler.command = /^(tictactoe|t{3})(exit)?$/
 
 module.exports = handler
-
-let wm = global.botwm

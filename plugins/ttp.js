@@ -44,6 +44,5 @@ handler.help = new Array(4).fill('ttp').map((v, i) => v + (i + 1) + ' <teks>')
 handler.tags = ['sticker']
 
 handler.command = /^ttp[1-4]?$/i
-handler.premium = true
 
 module.exports = handler

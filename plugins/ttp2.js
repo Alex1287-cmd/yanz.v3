@@ -20,6 +20,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['ttp2 <teks>']
 handler.tags = ['sticker']
 handler.command = /^(ttp2)$/i
-handler.premium = true
+handler.limit = true
 //MadeByAnshul
 module.exports = handler
