@@ -6,7 +6,7 @@ let { MessageType } = require('@adiwajshing/baileys')
 let { performance } = require('perf_hooks')
 let exec = promisify(cp.exec).bind(cp)
 let handler = async (m, { conn, isOwner, command, text }) => {
-let logo = global.logo
+let logo = global.image
   if (global.conn.user.jid != conn.user.jid) return /*conn.reply(m.chat, util.format(...args), m)*/
   let fetch = require('node-fetch')
 await conn.sendMessage(m.chat, '```Executing...```', 'conversation', { thumbnail:  logo, contextInfo: { forwardingScore: '508', isForwarded: true, stanzaId: 'xxx', participant: '0@s.whatsapp.net', quotedMessage: { viewOnceMessage: { message: { imageMessage: {viewOnce: true}}}}, remoteJid: 'status@broadcast' }})

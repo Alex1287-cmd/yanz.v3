@@ -2,7 +2,6 @@ const similarity = require('similarity')
 const threshold = 0.72 // semakin tinggi nilai, semakin mirip
 module.exports = {
     async before(m) {
-        let wm = global.botwm
         this.game = this.game ? this.game : {}
         let id = 'family100_' + m.chat
         if (!(id in this.game)) return !0
@@ -22,7 +21,7 @@ module.exports = {
         }
         let isWin = room.terjawab.length === room.terjawab.filter(v => v).length
         let caption = `
-*✉️ Soal:* ${room.soal}
+*Soal:* ${room.soal}
 
 Terdapat *${room.jawaban.length}* jawaban${room.jawaban.find(v => v.includes(' ')) ? `
 (beberapa jawaban terdapat spasi)
@@ -34,7 +33,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
 
 ${isSurrender ? '' : `+${room.winScore} XP tiap jawaban benar`}
     `.trim()
-        await this.sendButton(m.chat, caption, wm, `${isWin ? 'Family 100' : isSurrender ? 'Family 100' : 'Nyerah'}`, `${isWin ? ',family100' : isSurrender ? ',family100' : 'nyerah'}`, {
+        await this.sendButton(m.chat, caption, watermark, `${isWin ? 'Family 100' : isSurrender ? 'Family 100' : 'Nyerah'}`, `${isWin ? ',family100' : isSurrender ? ',family100' : 'nyerah'}`, {
             contextInfo: {
                 mentionedJid: this.parseMention(caption)
             }

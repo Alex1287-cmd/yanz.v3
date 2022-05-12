@@ -12,11 +12,11 @@ handler.tags = ['hentai']
 handler.command = /^ecchi$/i
 handler.owner = false
 handler.mods = false
-handler.premium = true
+handler.premium = false
 handler.group = false
 handler.private = false
 
-handler.limit = false
+handler.limit = true
 handler.admin = false
 handler.botAdmin = false
 
