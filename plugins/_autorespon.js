@@ -70,7 +70,7 @@ Note: Syarat dan Ketentuan mungkin berlaku`.trim(), wm, 'Payment', '#payment', '
     if (new Date() * 1 - setting.status > 1000) {
         let _uptime = process.uptime() * 1000
         let uptime = clockString(_uptime)
-        await this.setStatus(`𝙸'𝙼 𝚈𝚊𝚗𝚣𝚣-𝙱𝚘𝚝 👾 || ⏰ 𝚁𝚄𝙽𝚃𝙸𝙼𝙴 ${pad(hours)}H ${pad(minutes)}M ${pad(seconds)}S ||📡 𝙼𝚘𝚍𝚎: ${global.opts['self'] ? '𝙿𝚛𝚒𝚟𝚊𝚝𝚎' : setting.groupOnly ? '𝙷𝚊𝚗𝚢𝚊 𝙶𝚛𝚞𝚙' : '𝙿𝚞𝚋𝚕𝚒𝚌'} || © 𝟸𝟶𝟸𝟸 𝙱𝚢 𝚈𝚊𝚗𝚣𝚣 🗿`).catch(_ => _)
+        await this.setStatus(`𝙸'𝙼 𝚈𝚊𝚗𝚣𝚣-𝙱𝚘𝚝 👾 || ⏰ 𝚁𝚄𝙽𝚃𝙸𝙼𝙴 ${uptime} ||📡 𝙼𝚘𝚍𝚎: ${global.opts['self'] ? '𝙿𝚛𝚒𝚟𝚊𝚝𝚎' : setting.groupOnly ? '𝙷𝚊𝚗𝚢𝚊 𝙶𝚛𝚞𝚙' : '𝙿𝚞𝚋𝚕𝚒𝚌'} || © 𝟸𝟶𝟸𝟸 𝙱𝚢 𝚈𝚊𝚗𝚣𝚣 🗿`).catch(_ => _)
         setting.status = new Date() * 1
     }
 
