@@ -11,18 +11,17 @@ let handler = async (m, { conn, usedPrefix }) => {
     let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json')).json()
     let json = src[Math.floor(Math.random() * src.length)]
     let caption = `
-*—[ Asak Otak]—*
 ${json.soal}
 
-*⏰ Timeout:* ${(timeout / 1000).toFixed(2)} detik
-*🎁 Bonus:* ${poin} XP
-*🔎 Hint:* ${usedPrefix}ao
+Timeout *${(timeout / 1000).toFixed(2)} detik*
+Ketik ${usedPrefix}ao untuk bantuan
+Bonus: ${poin} XP
     `.trim()
     conn.asahotak[id] = [
-        await conn.sendButton(m.chat, caption.trim(), `${wm}`, 'Bantuan', '.ao'),
+        await conn.sendButton(m.chat, caption.trim(), watermark, 'Bantuan', '.ao', m),
         json, poin,
         setTimeout(async () => {
-            if (conn.asahotak[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, '© nekobotz', 'Asah Otak', '.asahotak')
+            if (conn.asahotak[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, 'Games', 'Asah Otak', '.asahotak')
             delete conn.asahotak[id]
         }, timeout)
     ]
@@ -32,5 +31,3 @@ handler.tags = ['game']
 handler.command = /^asahotak/i
 
 module.exports = handler
-
-let wm = global.botwm

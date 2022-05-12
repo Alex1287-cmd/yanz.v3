@@ -1,52 +1,41 @@
-const { MessageType } = require('@adiwajshing/baileys')
 let fetch = require('node-fetch')
-let fs = require('fs')
 let handler = async (m, { conn, text }) => {
-let logo = global.logoowner
   let ext= `
-*───────[ BIODATA OWNER ]───────*
-*💌 Nama* : Ynz
-*🎨 Umur* : Kepo
-*🧮 Kelas* : Kepo
-*📈 Status* : Kepo
+╭══════════════════════
+║╭─❉ *𝐁𝐈𝐎𝐃𝐀𝐓𝐀 𝐎𝐖𝐍𝐄𝐑* ❉─
+║│➸ *Nama* : Yan
+║│➸ *Gender* : Lelaki
+║│➸ *Tempat Tinggal* :
+║│➸ Indonesia,Sumatera Barat
+║│➸ *Agama* : Islam
+║│➸ *Umur* : 19
+║│➸ *Kelas* : Dah Tamat🗿
+║│➸ *Status* : Kepo Amat Banhh🗿
+║│➸ *Hobi* : 
+║│➸ Turu🗿
+║╰────────────────────
+╰══════════════════════
+╭══════════════════════
+║╭─❉ *𝐒𝐎𝐒𝐈𝐀𝐋 𝐌𝐄𝐃𝐈𝐀* ❉──
+║│➸ *No.Owner* : 
+║│➸ wa.me/6288272489919
+║│➸ *No.Bot* : 
+║│➸ wa.me/682186172016
+║│➸ *Chanel Youtube* : 
+║│➸ males isi
+║│➸ *Gmail* : Xnxx@gmail.com
+║│➸ *Github* : males isi
+║╰─────────────────────
+╰═══════════════════════
+_Oke segitu aja_
 
-*───────[ SOSIAL MEDIA ]───────*
-*📷 instagran* : Kepo
-*🇫  Facebook* : Kepo
-*🏮 Mu Github* : https://github.com/Yanzz-Bot
-`
-let name = await conn.getName(m.sender)
-
-let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-
-  sumberImg = fs.readFileSync(`./src/owner.jpg`)
-  image = (await conn.prepareMessage('0@s.whatsapp.net', sumberImg, MessageType.image, { thumbnail: Buffer.alloc(0) })).message.imageMessage
-  res = await conn.prepareMessageFromContent(m.chat, {
-    "productMessage": {
-      "product": {
-        "productImage": image,
-        "productId": "4938174216214248",
-        "title": "───────[ OWNER ]───────",
-        "description": '\n\n' + ext,
-        "retailerId": "Itu Owner ku ya ^~^",
-        "url": '',
-        "descriptionCount": "999999999",
-        "productImageCount": "1",
-      },
-      "businessOwnerJid": "6288287810316@s.whatsapp.net",
-      "contextInfo": {
-        "forwardingScore": 9999,
-        "isForwarded": false
-      }
-    }
-  },
-    { quoted: fkon })
-  conn.relayWAMessage(res)
+`.trim()
+conn.send3ButtonLoc(m.chat, await (await fetch(fla + 'Biodata')).buffer(), ext, 'Sc By Yanz💌', 'Nomor Owner👤', '.owner', 'Donasi💰', '.donasi', 'Sewa Bot🤖', '.sewa', m)
 
 }
-handler.help = ['owner', 'creator']
+handler.help = ['infoowner', 'infocreator']
 handler.tags = ['info']
-handler.command = /^(owner|creator)$/i
+handler.command = /^(infoowner|infocreator)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
@@ -59,5 +48,3 @@ handler.botAdmin = false
 handler.fail = null
 
 module.exports = handler
-
-let wm = global.botwm

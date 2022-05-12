@@ -1,5 +1,6 @@
-let handler  = async (m, { conn, usedPrefix, command }) => {
-  conn.sendButton(m.chat,`${pickRandom(global.bacot)}`, wm, 'Again', `${usedPrefix + command}`, m)
+let fetch = require('node-fetch')
+let handler  = async (m, { conn }) => {
+  conn.sendButtonLoc(m.chat, await (await fetch(fla + 'Bacot')).buffer(), `*────────「 Quotes 」 ────────*\n\n${pickRandom(global.bacot)}`, '_*Quotes*_', 'Bacot', `.bacot`, m)
 }
 handler.help = ['bacot']
 handler.tags = ['quotes']
@@ -16,8 +17,6 @@ handler.botAdmin = false
 handler.fail = null
 
 module.exports = handler
-
-let wm = global.botwm
 
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]

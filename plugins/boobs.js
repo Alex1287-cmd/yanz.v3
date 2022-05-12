@@ -1,21 +1,22 @@
+let axios = require('axios')
 let fetch = require('node-fetch')
 let neko = require('nekos.life')
 let Neko = new neko()
-     let handler  = async (m, { conn, args }) => {
-if (!db.data.chats[m.chat].nsfw && m.isGroup) throw 'Feature Nsfw Disable\nType *!enable* *nsfw* to activate this feature'
-     json = (await Neko.nsfw.boobs()).url
-   conn.sendFile(m.chat, json, 'boobs.jpg', 'Wangy wangy wangy', m, false)
+     let handler  = async (m, { conn, usedPrefix, command }) => {
+     	if (!db.data.chats[m.chat].nsfw && m.isGroup) throw global.nsfw
+     json = await fetch(`https://meme-api.herokuapp.com/gimme/biganimetiddies`)
+   conn.sendButton(m.chat, await (await fetch(json.url)).buffer(), 'oppai', watermark, 'NEXT', `${usedPrefix + command}`, m, false)
 }
-handler.help = ['boobs','oppai', 'milf']
+handler.help = ['boobs']
 handler.tags = ['hentai']
-handler.command = /^(boobs|oppai|milf)$/i
+handler.command = /^boobs$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
 handler.group = false
 handler.private = false
 
-handler.limit = false
+handler.limit = true
 handler.admin = false
 handler.botAdmin = false
 
