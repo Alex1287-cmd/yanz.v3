@@ -1,10 +1,10 @@
 let handler  = async (m, { conn }) => {
 	
-	await m.reply('[❗] WAIT, Tunggu Sebentar')
+	await m.reply('[❗] WAIT, Tunggu Sebentar:v.')
   conn.reply(m.chat,`${pickRandom(global.bokep)}`, m)
 }
 handler.help = ['filebokep']
-handler.tags = ['hentai']
+handler.tags = ['bokep','premium']
 handler.command = /^(filebokep)$/i
 handler.owner = false
 handler.mods = false
