@@ -1,15 +1,12 @@
-let fetch = require('node-fetch')
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `uhm. cari apa?\n\ncontoh:\n${usedPrefix + command} logo`
-  let res = await fetch(`https://api.lolhuman.xyz/api/pinterest?apikey=Dawnfrostkey&query=${text}`)
-  if (!res.ok) throw await `${res.status} ${res.statusText}`
-  let json = await res.json()
-  if (!json.status) throw json
-  conn.sendButtonImg(m.chat, await (await fetch(json.result)).buffer(), `┏┉⌣ ┈ ̥- ̶ ̯ ͡.. ̷ ̴✽ ̶┄┈┈┈┈┈┈┈┈┈┈┉┓\n┆ *PINTEREST SEARCH*\n└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈ ̥- ̶ ̯ ͡.. ̷ ̴✽ ̶⌣ ✽ ̶\n🔎 *Pencarian :* ${text}\n💻 *Source :* Pinterest`, `${wm}`, 'Next', `${usedPrefix + command} ${text}`, m, 0, { thumbnail: await (await fetch(json.result)).buffer() })
+let xfar = require('xfarr-api')
+let handler = async (m, { usedPrefix, command, conn, args }) => {
+	 	  if (!args[0]) throw `Gunakan format: ${usedPrefix}${command} naruto`
+xfar.Pinterest(args[0]).then(async data => {
+let pincpt = `🔗Link media : ${data.url}`
+conn.sendButtonImg(m.chat, data.url, pincpt, watermark, 'NEXT', `.pinterest args[0]`, m)})
 }
-handler.help = ['pinterest <pencarian>']
+handler.help = ['pinterest <keyword>']
 handler.tags = ['internet']
-handler.command = /^(pint(erest)?)$/i
+handler.command = /^(pinterest)$/i
 
 module.exports = handler
-let wm = global.botwm

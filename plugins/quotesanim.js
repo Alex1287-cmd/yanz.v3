@@ -1,14 +1,13 @@
 let fetch = require('node-fetch')
-let wm = global.botwm
 let handler = async(m, { conn, usedPrefix, command }) => {
 
-let res = await (await fetch(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=511fc49c7ad4edcecf8653cf`)).json()
-let hasil = `${res.result.quote}
+	let res = await (await fetch(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=aad982723e67dc7a1ce2e81c`)).json()
+	 	let hasil = `${res.result.quote}
 chara: ${res.result.character}
 anime: ${res.result.anime}
 episode: ${res.result.episode}`.trim()
 
-    conn.sendButton(m.chat, hasil, wm, 'Next', `${usedPrefix + command}`, m)
+    conn.sendButton(m.chat, hasil, watermark, 'Next', `${usedPrefix + command}`, m)
 }
 handler.help = ['quoteanime']
 handler.tags = ['anime', 'quotes']

@@ -1,53 +1,24 @@
-let { performance } = require('perf_hooks')
-let fs = require('fs')
-let { MessageType } = require('@adiwajshing/baileys')
-let peli = fs.readFileSync('./sticker/Images1.jpg')
-let pelo = fs.readFileSync('./sticker/Images2.jpg')
-let handler = async (m, { conn }) => {
-function kyun(seconds){
-  function pad(s){
-    return (s < 10 ? '0' : '') + s;
-  }
-  var hours = Math.floor(seconds / (60*60));
-  var minutes = Math.floor(seconds % (60*60) / 60);
-  var seconds = Math.floor(seconds % 60);
+let handler = async (m, { usedPrefix, command }) => {
+let _uptime = process.uptime() * 1000
+let uptime = clockString(_uptime)
+let time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
+let runnya = `
+*───「 RUNTIME BOT💌 」───*
 
-  //return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
-  return `𝙍𝙐𝙉𝙏𝙄𝙈𝙀\n${pad(hours)}H ${pad(minutes)}M ${pad(seconds)}S`
+⏲️Time : ${time}
+👾Runtime : ${uptime}
+`
+conn.sendButton(m.chat, runnya, watermark, 'Menu', '.menu', m) 
 }
-					runtime = process.uptime()
-					teks = `${kyun(runtime)}`
-					var itsme = `0@s.whatsapp.net`
-					var split = `Ƙαɴɴαвσт`
-					const rtimebro = {
-					contextInfo: {
-					participant: itsme,
-					quotedMessage: {
-					extendedTextMessage: {
-					text: split,
-									}
-								}
-							}
-						}
-						conn.sendMessage(m.chat, `${teks}`, 'conversation', {thumbnail: pelo, contextInfo:{externalAdReply: {title: `${botol}`, sourceUrl: '', body: '──────────────', thumbnail: peli}}})
-				/*	conn.sendMessage(m.chat, `${teks}`, MessageType.text, rtimebro)*/
-}
-
 handler.help = ['runtime']
-handler.tags = ['main']
-handler.command = /^(runtime)$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
-
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
-handler.exp = 3
+handler.tags = ['info']
+handler.command = /^(uptime|runtime)$/i
 
 module.exports = handler
 
-let botol = global.botwm
+function clockString(ms) {
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+}

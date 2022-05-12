@@ -26,7 +26,7 @@ handler.help = ['pengumuman', 'announce', 'hidetag'].map(v => 'o' + v + ' [teks]
 handler.tags = ['group']
 handler.command = /^o(pengumuman|announce|hiddentag|hidetag)$/i
 
-handler.premium = true
+handler.owner = true
 handler.group = true
 
 module.exports = handler

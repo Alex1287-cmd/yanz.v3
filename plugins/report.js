@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     })
     m.reply(`_Pesan terkirim kepemilik bot, jika ${command.toLowerCase()} hanya main-main tidak akan ditanggapi._`)
 }
-handler.help = ['report', 'request'].map(v => v + ' <teks>')
+handler.help = ['report', 'request', 'konfir'].map(v => v + ' <teks>')
 handler.tags = ['info']
-handler.command = /^(report|request)$/i
+handler.command = /^(konfir|report|request)$/i
 module.exports = handler

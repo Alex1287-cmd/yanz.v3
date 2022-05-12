@@ -1,11 +1,11 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn }) => {
-    let __timers = (new Date - global.db.data.users[m.sender].lastngojek)
+    let __timers = (new Date - global.DATABASE._data.users[m.sender].lastngojek)
     let _timers = (300000 - __timers)
-    let order = global.db.data.users[m.sender].ojekk
+    let order = global.DATABASE._data.users[m.sender].ojekk
     let timers = clockString(_timers) 
 let name = m.fromMe ? conn.user : conn.contacts[m.sender]
-    let user = global.db.data.users[m.sender]
+    let user = global.DATABASE._data.users[m.sender]
     let buttons = [
 {buttonId: '.inv', buttonText: {displayText: 'Inventory'}, type: 1}, 
 ]
@@ -15,7 +15,7 @@ const buttonMessage = {
     buttons: buttons,
     headerType: 1
 }
-    if (new Date - global.db.data.users[m.sender].lastngojek > 300000) {
+    if (new Date - global.DATABASE._data.users[m.sender].lastngojek > 300000) {
 let randomaku1 = `${Math.floor(Math.random() * 10)}`
 let randomaku2 = `${Math.floor(Math.random() * 10)}`
 let randomaku4 = `${Math.floor(Math.random() * 5)}`
@@ -42,8 +42,6 @@ dimas = `
 ⬛⬜⬜⬜⬛⬜⬜⬜⬛⬛
 ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
 🏘️🏘️🏘️🏘️🌳  🌳 🏘️       🛵
-
-
 ✔️ Mendapatkan orderan....
 `
 
@@ -52,8 +50,6 @@ dimas2 = `
 ⬛⬜⬜⬜⬛⬜⬜⬜⬛⬛
 ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
 🏘️🏘️🏘️🏘️🌳  🌳 🏘️       
-
-
 ➕ Mengantar ke tujuan....
 `
 
@@ -62,8 +58,6 @@ dimas3 = `
 ⬛⬜⬜⬛⬛⬜⬜⬜⬛⬛
 ⬛⬛⬛⬛⬛⬛⬛🛵⬛⬛
 🏘️🏘️🏘️🏘️🌳  🌳 🏘️       
-
-
 ➕ Sampai di tujuan....
 `
 
@@ -72,26 +66,21 @@ dimas4 = `
 ⬛⬜⬜⬛⬛⬜⬜⬜⬛⬛
 ⬛⬛⬛⬛⬛⬛⬛🛵⬛⬛
 🏘️🏘️🏘️🏘️🌳  🌳 🏘️ 🚶  
-
-
 ➕ 💹Menerima gaji....
 `
 
 hsl = `
 *—[ Hasil Ngojek ${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])} ]—*
-
  ➕ 💹 Uang = [ ${zero4} ]
  ➕ ✨ Exp = [ ${zero5} ] 		 
  ➕ 😍 Order Selesai = +1
-
 ➕  📥Total Order Sebelumnya : ${order}
-
 ${wm}
 `
-
-global.db.data.users[m.sender].money += rbrb4
-global.db.data.users[m.sender].exp += rbrb5
-global.db.data.users[m.sender].ojekk += 1
+
+global.DATABASE._data.users[m.sender].money += rbrb4
+global.DATABASE._data.users[m.sender].exp += rbrb5
+global.DATABASE._data.users[m.sender].ojekk += 1
 
 
 setTimeout(() => {
