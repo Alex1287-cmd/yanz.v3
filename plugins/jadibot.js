@@ -24,7 +24,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       }, 30000)
     })
     conn.version = global.conn.version
-    conn.browserDescription = ['Ingat cmn nmpang (Haori&Yanz)','Deskop','3.0']
+    conn.browserDescription = ['Server by Kanna-Bot','Deskop','3.0']
     conn.welcome = global.conn.welcome + ''
     conn.bye = global.conn.bye + ''
     conn.spromote = global.conn.spromote + ''
@@ -69,10 +69,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   } else throw '[❗] Tidak bisa membuat bot didalam bot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.jadibot'
 }
 handler.help = ['jadibot']
-handler.tags = ['jadibot']
+handler.tags = ['jadibot', 'premium']
 
 handler.command = /^jadibot$/i
-handler.premium = false
+handler.premium = true
 handler.private = true
 
 handler.limit = 1

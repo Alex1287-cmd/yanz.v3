@@ -1,15 +1,15 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn, command, usedPrefix }) => {
-	
-	conn.sendButtonImg(m.chat, await ( await fetch(`https://api.xteam.xyz/randomimage/husbu2?APIKEY=apivproject`)).buffer(), 'Nih kak', watermark, 'NEXT', `${usedPrefix + command}`, m)
-
+let handler = async (m, { conn, args }) => {
+   response = args.join(' ')
+  m.reply('Sedang Diproses...')
+  let res = await fetch(`https://recoders-area.caliph.repl.co/api/husbu?apikey=FreeApi`)
+  let json = await res.json()
+  conn.sendFile(m.chat, json.url, 'husbu.jpg', json.name, m, false)
 }
-
-handler.help = ['husbu']
+handler.help = ['husbu'].map(v => v + ' ')
 handler.tags = ['anime']
+
 handler.command = /^(husbu)$/i
 handler.register = true
-
-handler.limit = true
 
 module.exports = handler

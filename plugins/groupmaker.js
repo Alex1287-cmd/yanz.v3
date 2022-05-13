@@ -11,7 +11,11 @@ let handler  = async (m, { conn, text }) => {
 handler.help = ['buatgrup']
 handler.tags = ['owner', 'premium']
 handler.command = /^(buatgrup)$/i
-
 handler.premium = true
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+handler.fail = null
 
 module.exports = handler

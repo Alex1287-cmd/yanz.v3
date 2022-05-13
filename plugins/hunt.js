@@ -49,9 +49,9 @@ let handler = async (m, { conn, text }) => {
 	let cd1 = Math.ceil(01 - cdm)
 	let cd2 = Math.ceil(60 - cds)
 
-	let area_monsters = monsters.filter(monster => monster.area === player.area)
+	let area_monsters = monsters.filter(monster => { return monster.area === player.area })
 	let monster = area_monsters[Math.floor(Math.random() * area_monsters.length)]
-	let monsterName = pickRandom(monsters[0].name.toUpperCase())
+	let monsterName = monster.name.toUpperCase()
 
 	if (new Date - global.db.data.users[m.sender].lasthunt > 120000) {
 		let coins = parseInt(Math.floor(Math.random() * 401))
@@ -77,7 +77,7 @@ let handler = async (m, { conn, text }) => {
 		player.money += coins * 1
 		player.exp += exp * 1
 
-		let pesan = `*${pname}* Menemukan Dan Membunuh *${monsterName}*\nMendapatkan ${new Intl.NumberFormat('en-US').format(coins)} coins & ${new Intl.NumberFormat('en-US').format(exp)} XP\nBerkurang -${dmg} Hp, Tersisa ${player.healt}/${100}`
+		let pesan = `*${pname}* Menemukan Dan Membunuh *${monsterName}*\nMendapatkan ${new Intl.NumberFormat('en-US').format(coins)} coins & ${new Intl.NumberFormat('en-US').format(exp)} XP\nBerkurang -${dmg}Hp, Tersisa ${player.healt}/${100}`
 		m.reply(pesan)
 	} else throw `Tunggu *00:${cd1}:${cd2}* Untuk Berburu Lagi`
 }
@@ -85,6 +85,8 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['hunt']
 handler.tags = ['rpg']
 handler.command = /^hunt/i
+
+handler.disabled = false
 
 handler.fail = null
 
@@ -98,7 +100,4 @@ function MeNit(ms) {
 function DeTik(ms) {
 	let s = isNaN(ms) ? '60' : Math.floor(ms / 1000) % 60
 	return [s].map(v => v.toString().padStart(2, 0)).join(':')
-}
-function pickRandom(list) {
-return list[Math.floor(Math.random() * list.length)];
 }

@@ -1,17 +1,32 @@
-let fetch = require('node-fetch')
+let { getBuffer, succes } = require('../lib/function.js')
+let axios = require("axios");
+
 let handler = async(m, { conn, text }) => {
 
   await m.reply('Searching...')
 
-   let covid = await (await fetch('https://i.ibb.co/8db5c7S/Coronavirus-2.jpg')).buffer()
+   let covid = await getBuffer('https://i.ibb.co/8db5c7S/Coronavirus-2.jpg')
 
-	let res = await (await fetch(`https://api.kawalcorona.com/indonesia/`)).json()
-      let hasil = `*INFO COVID-19 INONESIA*\n\nPositif : ${res.positif}\nMeninggal : ${res.meninggal}\nDirawat : ${res.dirawat}\nSembuh : ${res.sembuh}\n\nTetap Jaga Kesehatan, Pakai Masker, Stay At Home :3`
+	axios.get(`https://api.kawalcorona.com/indonesia/`).then ((res) => {
+      let hasil = `*INFO COVID-19 INONESIA*\n\nPositif : ${res.data.positif}\nMeninggal : ${res.data.meninggal}\nDirawat : ${res.data.dirawat}\nSembuh : ${res.data.sembuh}\n\nTetap Jaga Kesehatan, Pakai Masker, Stay At Home :3`
 
     conn.sendFile(m.chat, covid, 'infocovid.jpg', hasil, m)
+	})
 }
 handler.help = ['infocovid']
 handler.tags = ['news']
 handler.command = /^(infocovid)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+handler.exp = 0
+handler.limit = false
 
 module.exports = handler

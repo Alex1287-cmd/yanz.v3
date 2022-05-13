@@ -11,18 +11,15 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 		'0': true,
 	}[(args[0] || '')]
 	if (isClose === undefined) {
-		await conn.send2Button(m.chat, `
-contoh:
-*○ ${usedPrefix + command} tutup*
-*○ ${usedPrefix + command} buka*
-	`.trim(), watermark, 'BUKA', ',grup 1', 'TUTUP', ',grup 0')
+		await conn.send2Button(m.chat, `*───────[ GROUP SETTING ]───────*
+	`.trim(),`                     ${wm}\n` + date, 'Open', ',grup 1', 'Close', ',grup 0')
 		throw false
 	}
 	await conn.groupSettingChange(m.chat, GroupSettingChange.messageSend, isClose)
 }
-handler.help = ['grup <buka/tutup>']
+handler.help = ['grup <1/0>']
 handler.tags = ['group']
-handler.command = /^(gro?up|grub)$/i
+handler.command = /^gr(oup|up)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
@@ -33,3 +30,6 @@ handler.botAdmin = true
 handler.fail = null
 handler.exp = 0
 module.exports = handler
+
+let wm = global.botwm
+let date = global.botdate

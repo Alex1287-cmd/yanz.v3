@@ -4,13 +4,13 @@ async function handler(m) {
     this.game = this.game ? this.game : {}
     let id = 'family100_' + m.chat
     if (id in this.game) {
-        this.sendButton(m.chat, 'Masih ada kuis yang belum terjawab di chat ini', watermark, 'Nyerah', 'nyerah', { quoted: this.game[id].msg })
+        this.sendButton(m.chat, 'Masih ada kuis yang belum terjawab di chat ini', '© stikerin', 'Nyerah', 'nyerah', { quoted: this.game[id].msg })
         throw false
     }
     let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/family100.json')).json()
     let json = src[Math.floor(Math.random() * src.length)]
     let caption = `
-*Soal:* ${json.soal}
+*✉️ Soal:* ${json.soal}
 
 Terdapat *${json.jawaban.length}* jawaban${json.jawaban.find(v => v.includes(' ')) ? `
 (beberapa jawaban terdapat spasi)
@@ -20,7 +20,7 @@ Terdapat *${json.jawaban.length}* jawaban${json.jawaban.find(v => v.includes(' '
     `.trim()
     this.game[id] = {
         id,
-        msg: await this.sendButton(m.chat, caption, watermark, 'Nyerah', 'nyerah'),
+        msg: await this.sendButton(m.chat, caption, wm, 'Nyerah', 'nyerah'),
         ...json,
         terjawab: Array.from(json.jawaban, () => false),
         winScore,
@@ -31,3 +31,5 @@ handler.tags = ['game']
 handler.command = /^family100$/i
 
 module.exports = handler
+
+let wm = global.botwm

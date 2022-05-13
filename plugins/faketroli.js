@@ -5,14 +5,14 @@ let handler = async(m, { conn, args, text, usedPrefix: _p }) => {
 //if(args.length == 0) return m.reply(`Cara Penggunaan: Reply Foto, Ketik *${_p}faketroli* <TextMessage> | <OrderMessage> | <OrderTitle>\nContoh: *${_p}faketroli* Hai Wibu | ZEROBOT | 10k Bang?`) 
 	let [poop, tytyd] = text.split("|")
 	if(!poop) return m.reply("Masukkan Teks Utama")
-	if(!tytyd) tytyd = "LynXzy"
+	if(!tytyd) tytyd = "NEKOBOTZ"
 	//if(!kecil) return m.reply("Masukkan Teks Title Order!")
   try{
 //let q = m.quoted ? m.quoted : m
 //let mime = (q.msg || q).mimetype || ''
    // if (!/image\/(jpe?g|png)/.test(mime)) return m.reply("Foto Aja Om :)")
     //let img = await q.download()
-        let img = "./src/mike.jpg"
+        let img = "./src/uwu.png"
 	const xixi = {
 	                  key : {
                                 participant : '0@s.whatsapp.net'
@@ -23,8 +23,8 @@ let handler = async(m, { conn, args, text, usedPrefix: _p }) => {
                             status: 1,
                             surface : 1,
                             message: tytyd,
-                            orderTitle: "LynXzy",
-                            thumbnail: fs.readFileSync("./src/mike.jpg"),
+                            orderTitle: `${wm}`,
+                            thumbnail: fs.readFileSync("./src/uwu.png"),
                             sellerJid: '0@s.whatsapp.net'
                         }
                 }
@@ -39,3 +39,5 @@ let handler = async(m, { conn, args, text, usedPrefix: _p }) => {
 handler.command = /^(troly)$/i
 
 module.exports = handler
+
+let wm = global.botwm

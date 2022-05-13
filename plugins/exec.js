@@ -38,7 +38,7 @@ itemCount: 999999999999, status: 1,
 message: _syntax + util.format(_return),
 orderTitle: 'B',
 sellerJid: '0@s.whatsapp.net',
-thumbnail: fs.readFileSync('./src/RadBotZ.jpg')
+thumbnail: ye
 }}, {contextInfo: null, quoted: m})
 conn.relayWAMessage(prep)
     m.exp = old
