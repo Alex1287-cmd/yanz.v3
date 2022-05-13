@@ -1,10 +1,8 @@
-let fetch = require('node-fetch')
-let fs = require('fs')
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
   let isEnable = /true|enable|(turn)?on|1/i.test(command)
   let chat = global.db.data.chats[m.chat]
   let user = global.db.data.users[m.sender]
-  let setting = global.db.data.settings[conn.user.jid]
+  let setting = global.db.data.settings
   let type = (args[0] || '').toLowerCase()
   let isAll = false
   let isUser = false
@@ -21,18 +19,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         throw false
       }
       chat.welcome = isEnable
-      break
-    case 'viewonce':
-      if (!m.isGroup) {
-        if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
-        }
-      } else if (!(isAdmin || isOwner)) {
-        global.dfail('admin', m, conn)
-        throw false
-      }
-      chat.viewonce = isEnable
       break
     case 'detect':
       if (!m.isGroup) {
@@ -207,6 +193,16 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       opts['autoread'] = isEnable
       break
+    case 'antibadword':
+    case 'antitoxic':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.antiBadword = isEnable
+      break
     case 'restrict':
       isAll = true
       if (!isOwner) {
@@ -251,37 +247,39 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (m.isGroup) {
         global.dfail('private', m, conn)
         throw false
+    } else if (!(isAdmin || isOwner)) {
+      global.dfail('admin', m, conn)
+      throw false
       } 
       chat.simi = isEnable
       break
     default:
       if (!/[01]/.test(command)) throw `
-┌〔 Daftar Opsi 〕${isOwner ? '\n├ anon\n├ antispam\n├ antitroli\n├ autoread\n├ backup\n├ clear\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ mycontact' : ''}
-├ antilink
-├ autolevelup
-├ rpg
-├ delete
-├ detect
-├ viewonce
-├ antibadword
-├ document
-├ stiker
-├ simi
-├ welcome
-└────
-contoh:
+╭› Daftar Opsi 」${isOwner ? '\n├⋆ anon\n├⋆ anticall\n├⋆ antispam\n├⋆ antitroli\n├⋆ autoread\n├⋆ backup\n├⋆ clear\n├⋆ grouponly\n├⋆ jadibot\n├⋆ nsfw\n├⋆ public\n├⋆ mycontact' : ''}
+├⋆ antilink
+├⋆ autolevelup
+├⋆ antibadword
+├⋆ rpg
+├⋆ delete
+├⋆ detect
+├⋆ document
+├⋆ stiker
+├⋆ simi
+├⋆ welcome
+╰────····⋆
+
+*Contoh:*
 ${usedPrefix}on welcome
 ${usedPrefix}off welcome
 `.trim()
       throw false
   }
-let str = `
-*${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* ${isAll ? 'untuk bot ini' : isUser ? '' : 'untuk chat ini'}
-`.trim()
-     await conn.send2Button(m.chat, str, watermark, 'Owner', '.owner', 'Menu', '.menu', { key: { fromMe: false, remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { message: `Yanz`, itemCount: 999, thumbnail: fs.readFileSync('./src/93278eaa12fd253a4fe3cc08a0b219bc.jpg')}}})
+  conn.send2Button(m.chat,`*${isEnable ? '✅' : '❌'} ${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* ${isAll ? 'untuk bot ini' : isUser ? '' : 'untuk chat ini'}`, wm, `⋮☰ Menu`, '.menu', `${isEnable ? 'Off' : 'On'} ${type}`, `.${isEnable ? 'Off' : 'On'} ${type}` ,m)
 }
 handler.help = ['on', 'off'].map(v => v + ' <opsi>')
 handler.tags = ['group', 'owner']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
 
 module.exports = handler
+
+let wm = global.botwm

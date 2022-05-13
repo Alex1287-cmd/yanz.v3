@@ -1,22 +1,18 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn }) => conn.sendButtonLoc(m.chat, await (await fetch(bank)).buffer(), `
-*───────「 DONATE 」 ─────*
-_*Hanya Menerima Mata Uang Indonesia Ya Dek🗿*_
-╭═══════════════
-║╭─── [ DONASI ] ───
-║│➸ _*DANA*_✅ : 
-║│- 088272489919
-║│
-║│➸ _*PULSA*_✅: 
-║│- 082186172016
-║│
-║│➸ _*OWNER*_
-║│- wa.me/6288272489919
-║╰────────────
-╰═══════════════
-`.trim(), 'Donasi jan asal mencet', 'Owner Bot', '.owner')
-handler.help = ['donasi']
-handler.tags = ['info']
-handler.command = /^dona(te|si)$/i
+let handler = async (m, { conn }) => conn.sendButtonLoc(m.chat, await (await fetch(fla + 'donasi')).buffer(), `››╭─〘 *Donasi* 〙
+╭╡
+│┝‷✧ *Pulsa:* 6287708773367
+│┝‷✧ *Dana:* 6285712420674
+│┝‷✧ *Linkaja:* 6285712420674
+│┝‷✧ *Gopay:* 6285712420674
+│┝‷✧ *Ovo:* 6285712420674
+│╰───···─────
+│⁺◛˖ Ingin Donasi? Chat
+│wa.me/6288229683561?text=kak+mau+donasi
+╰──────────···───╮
+▌│█║▌║▌║║▌║▌║█│▌
+`.trim(), `${wm}`, 'Owner', '.owner')
 
 module.exports = handler
+
+let wm = global.botwm

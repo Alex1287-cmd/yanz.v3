@@ -1,45 +1,47 @@
-let fs = require('fs')
-let handler = async function (m) {
-	const fakegrup = {
-	key : {
-fromMe: false,
-participant : '0@s.whatsapp.net',
-remoteJid: 'status@broadcast'
-},
-message: {
-locationMessage: {
-name: '©Yanz',
-jpegThumbnail: fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
-  }
- }
-}
-let list = []
-  for (let i of owner.map(v => v + '@s.whatsapp.net')) {
-  list.push({
-            "displayName": this.getName(i),
-            "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${this.getName(i)}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-          })
-  }
-        test = await this.sendMessage(m.chat, {
-        "displayName": `${list.length} Contact`,
-        "contacts": list 
-        }, 'contactsArrayMessage', { quoted: fakegrup })
-          let buttons = [
-  {buttonId: '.rules', buttonText: {displayText: 'Rules'}, type: 1},
-  {buttonId: '.menu', buttonText: {displayText: 'Menu'}, type: 1},
-]
-const buttonsMessage = {
-    contentText: `
-Itu Owner Ku Kak
-`.trim(),    footerText: ``,
-    buttons: buttons,
-  headerType: 'EMPTY'
-}
-conn.sendMessage(m.chat, buttonsMessage, 'buttonsMessage', { quoted: test})
+/*const { MessageType } = require('@adiwajshing/baileys')
+const PhoneNumber = require('awesome-phonenumber')
+async function handler(m) {
+  let name = 'ᴏωɴᴇŗ LordBot あ'
+  number = owner[0].replace(/[^0-9]/g, '')
+  let njid = number + '@s.whatsapp.net'
+  let onW = await this.isOnWhatsApp(njid) || { isBusiness: false }
+
+  let name2 = '๑ོLord ʙσţ๑'
+  number2 = owner[1].replace(/[^0-9]/g, '')
+  let njid2 = number2 + '@s.whatsapp.net'
+  let onW2 = await this.isOnWhatsApp(njid2) || { isBusiness: false }
+
+  this.sendMessage(m.chat, {
+    contacts: [{
+      displayname: name, vcard: `
+BEGIN:VCARD
+VERSION:3.0
+N:;${name.replace(/\n/g, '\\n')};;;
+FN:${name.replace(/\n/g, '\\n')}
+TEL;type=CELL;type=VOICE;waid=${number}:${PhoneNumber('+' + number).getNumber('international')}${onW.isBusiness ? `
+X-WA-BIZ-NAME:${(this.contacts[njid].vname || this.getName(njid)).replace(/\n/, '\\n')}
+X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid)).description || '').replace(/\n/g, '\\n')}
+` : ''}
+END:VCARD
+`.trim()
+    }, {
+      displayname: name2, vcard: `
+BEGIN:VCARD
+VERSION:3.0
+N:;${name2.replace(/\n/g, '\\n')};;;
+FN:${name2.replace(/\n/g, '\\n')}
+TEL;type=CELL;type=VOICE;waid=${number2}:${PhoneNumber('+' + number2).getNumber('international')}${onW2.isBusiness ? `
+X-WA-BIZ-NAME:${(this.contacts[njid2].vname || this.getName(njid2)).replace(/\n/, '\\n')}
+X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid2)).description || '').replace(/\n/g, '\\n')}
+` : ''}
+END:VCARD
+`.trim()
+    }]
+  }, MessageType.contactsArray, { quoted: m })
 }
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
 
-handler.command = /^(owner|creator)$/i
+handler.command = /^(nowner)$/i
 
-module.exports = handler
+module.exports = handler */

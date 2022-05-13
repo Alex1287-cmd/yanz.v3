@@ -1,23 +1,24 @@
-const { MessageType } = require('@adiwajshing/baileys')
-const fetch = require('node-fetch')
-
-let handler = async (m, { conn }) => {
-    try {
-      await m.reply(global.wait)
-        let res = await fetch(global.API('xteam', '/randomimage/ero', {}, 'APIKEY'))
-        let img = await res.buffer()
-        conn.sendMessage(m.chat, img, MessageType.image, {
-            quoted: m, caption: '*©ヴァイオレット*'
-        })
-    } catch (e) {
-        console.log(e)
-        throw '_*Owner belum membayar tagihan fitur ini*_'
-    }
+let fetch = require('node-fetch')
+let neko = require('nekos.life')
+let Neko = new neko()
+     let handler  = async (m, { conn, args }) => {
+if (!db.data.chats[m.chat].nsfw && m.isGroup) throw 'Feature Nsfw Disable\nType *!enable* *nsfw* to activate this feature'
+     json = (await Neko.nsfw.ero()).url
+   conn.sendFile(m.chat, json, 'ero.jpg', 'wangy wangy wangy  > / / / <', m, false)
 }
 handler.help = ['ero']
-handler.tags = ['anime','premium']
+handler.tags = ['hentai']
 handler.command = /^ero$/i
-handler.premium = true
-handler.register = true
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+
+handler.limit = false
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
 
 module.exports = handler
