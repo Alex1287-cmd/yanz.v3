@@ -1,19 +1,3 @@
-let fs = require('fs')	
-const {
-    MessageType,
-    Mimetype
-} = require("@adiwajshing/baileys");
-const anu = {
-	key : {
-           participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    documentMessage: {
-                    title: '© Toimg By Ynz', 
-                    jpegThumbnail: fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
-                          }
-                        }
-                      }
 let { webp2png } = require('../lib/webp2mp4')
 let handler = async (m, { conn, usedPrefix, command }) => {
   if (!m.quoted) throw `balas stiker dengan perintah *${usedPrefix + command}*`
@@ -24,9 +8,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   if (/webp/.test(mime)) {
     out = await webp2png(media)
   }
-  await conn.sendFile(m.chat, out, 'out.png', 'Udh Selesai Kak😊...', anu, false, { thumbnail: fs.readFileSync('./src/RadBot.png')})
+  await conn.sendFile(m.chat, out, 'out.png', '© stikerin', m, false, { thumbnail: out })
 }
-handler.help = ['toimg']
+handler.help = ['toimg2']
 handler.tags = ['sticker']
-handler.command = ['toimg']
+handler.command = ['toimg2']
 module.exports = handler

@@ -3,8 +3,8 @@ let PhoneNumber = require('awesome-phonenumber')
 let levelling = require('../lib/levelling')
   
 let handler = async (m, { conn }) => {
-let caption = `*HALO Bang*\n*Saya LynXzy*\n*Pilih Menu Di Bawah Yaa Bree*\n*Spam = Banned*\n*Telp = Blok*\n\n*Join Group WhatsApp*\nhttps://chat.whatsapp.com/EheAWPrQMhV25xW0N7l7WD\n\n*Untuk Melihat Menu Bot Ketik .menu*`.trim()
-conn.send3Button(m.chat, caption, `Powered By Baileys\nCreated RadBotZ By Raditya\n`.trim(), '📑MENU', '.?', '🍭Owner', '.owner', '📖Info Bot', '.infobot', m)
+let caption = `*HALO Bang*\n*Saya NekoBotz*\n*Pilih Menu Di Bawah Yaa Bree*\n*Spam = Banned*\n*Telp = Blok*\n\n*Join Group WhatsApp*\nhttps://chat.whatsapp.com/GnaUCz2gOLo0xMpBXKNUxi\n\n*Untuk Melihat Menu Bot Ketik .menu Atau .NekoBotz*`.trim()
+conn.send3Button(m.chat, caption, `Powered By Baileys\nCreated NekoBotz By DanishGanz\n`.trim(), '🧾Menu', '.menu', '🍭Owner NekoBotz', '.owner', '📖Info Bot', '.infobot', m)
 }
 
 handler.command = /^(hel)$/i

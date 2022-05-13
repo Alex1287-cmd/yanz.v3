@@ -39,7 +39,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
                     if (global.db.data.users[m.sender].potion >= count * 1) {
                         global.db.data.users[m.sender].potion -= count * 1
                         global.db.data.users[m.sender].healt += usepotion * count
-                        conn.sendButton(m.chat, msgsucces, '©RadBotZ', 'Adventure', `${usedPrefix}mulung`, m)
+                        conn.sendButton(m.chat, msgsucces, wm, 'Adventure', `${usedPrefix}mulung`, m)
                     } else conn.reply(m.chat, msgkurang, m)
                 } else conn.reply(m.chat, msgpenuh, m)
             } catch (e) {
@@ -70,6 +70,7 @@ handler.tags = ['rpg']
 handler.command = /^(use|heal)$/i
 
 module.exports = handler
+let wm = global.botwm
 
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
