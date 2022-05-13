@@ -22,7 +22,7 @@ handler.mods = false
 handler.premium = false
 handler.group = false
 handler.private = false
-handler.limit = true 
+handler.limit = false 
 handler.admin = false
 handler.botAdmin = false
 

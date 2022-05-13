@@ -1,14 +1,13 @@
 let fetch = require('node-fetch')
-let handler = async(m, { conn }) => {
+let handler = async (m, { conn, usedPrefix, command }) => {
   let res = await fetch('http://nekos.life/api/v2/img/neko')
   if (!res.ok) throw await res.text()
   let json = await res.json()
   if (!json.url) throw 'Error!'
-  conn.sendFile(m.chat, json.url, 'nekos.jpeg', 'Nyaa', m)
+  conn.sendButtonImg(m.chat, await (await fetch(json.url)).buffer(), 'Nyaa', '© kannabot', '➡️ Next', `${usedPrefix + command}`, m,)
 }
-handler.help = ['nekos']
+handler.help = ['neko2']
 handler.tags = ['anime']
-handler.command = /^nekos$/i
+handler.command = /^(neko2)$/i
 
 module.exports = handler
-//MADE USING 🗿
