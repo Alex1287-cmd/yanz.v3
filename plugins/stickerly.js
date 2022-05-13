@@ -27,6 +27,7 @@ handler.help = ['stikerly <pencarian>']
 handler.tags = ['sticker']
 handler.command = /^(stic?kerly)$/i
 
+handler.premium = true
 handler.limit = true
 
 module.exports = handler

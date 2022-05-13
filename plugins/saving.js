@@ -1,18 +1,15 @@
-let PhoneNumber = require('awesome-phonenumber')
-
-let handler = async(m, { conn, text }) => {
-
-   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-   if (!text) return conn.reply(m.chat, 'Mau Disave Namanya Apa?', m)
-   let nomor = `${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`
-   let nama = `${text}`
-
-  conn.sendContact(m.chat, nomor, nama, m)
+let handler = async (m, { conn, text }) => {
+  if (!text) return
+  let who
+  if (m.isGroup) who = m.mentionedJid[0]
+  else who = m.chat
+  if (!who) throw 'Tag salah satu lah'
+  txt = text.replace('@' + who.split`@`[0], '').trimStart()
+  return conn.sendContact(m.chat, who, txt || conn.getName(who), m)
 }
-handler.help = ['save <nama>']
-handler.tags = ['tools']
-handler.command = /^(save)$/i
+handler.help = ['save'].map(v => v + ' @mention <ContactName>')
+handler.tags = ['group']
 
-handler.fail = null
+handler.command = /^save$/
 
 module.exports = handler

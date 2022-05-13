@@ -14,15 +14,15 @@ let handler = async (m, { conn, usedPrefix }) => {
     let caption = `
 ${json.soal}
 
-Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}who untuk bantuan
-Bonus: ${poin} XP
+*⏰ Timeout:* ${(timeout / 1000).toFixed(2)} detik
+*🎁 Bonus:* ${poin} XP
+*🔎 Hint:* ${usedPrefix}who
 `.trim()
     conn.siapakahaku[id] = [
-        await conn.sendButton(m.chat, caption, 'Games ×͜×', 'Bantuan', '.who'),
+        await conn.sendButton(m.chat, caption, `${wm}`, 'Bantuan', '.who'),
         json, poin,
         setTimeout(async () => {
-            if (conn.siapakahaku[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, 'Games ×͜×', 'Siapakah Aku', '.siapaaku')
+            if (conn.siapakahaku[id]) await conn.sendButton(m.chat, `⏰ Waktu habis!\n*✉️ Jawaban:* ${json.jawaban}`, `${wm}`, 'Siapakah Aku', '.siapaaku')
             delete conn.siapakahaku[id]
         }, timeout)
     ]
@@ -32,3 +32,5 @@ handler.tags = ['game']
 handler.command = /^siapa(kah)?aku/i
 
 module.exports = handler
+
+let wm = global.botwm

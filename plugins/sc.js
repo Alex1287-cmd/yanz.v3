@@ -11,7 +11,7 @@ const ftrol = {
     itemCount : 2022,
     status: 1,
     surface : 1,
-    message: 'Script My Botz', 
+    message: 'Script Lord botz 🗃️', 
     orderTitle: `▮Menu ▸`,
     thumbnail: await (await fetch(fla + 'Script')).buffer(), //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
@@ -20,10 +20,8 @@ const ftrol = {
     }
 let pp = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=Source+code'
 let info = `◪ 📮 *SCRIPT BOT*
-│ *Script Ori:* 
-│ ╰ https://github.com/Kannachann/Kanna-wabot
-│ *Script Recode:* 
-│ ╰ https://github.com/Yanzz-Bot/Yanzz-V3
+│ *Script :* 
+│ ╰ https://github.com/Lord-Ammar/Lord-BotV3
 │ *Base :* 
 │ ╰ https://github.com/bochilgaming/games-wabot
 │   https://github.com/kannachann/kanna-wabot
