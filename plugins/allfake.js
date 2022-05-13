@@ -10,9 +10,9 @@ key: {
 				"product": {
 					"productImage":{
 						"mimetype": "image/jpeg",
-						"jpegThumbnail": fs.readFileSync('./src/IMG-20220322-WA0026.jpg') //Gambarnye
+						"jpegThumbnail": fs.readFileSync('./src/mike.jpg') //Gambarnye
 					},
-					"title": "Yanz", //Kasih namalu 
+					"title": "YnzBot", //Kasih namalu 
 					"description": "SELF BOT", 
 					"currencyCode": "USD",
 					"priceAmount1000": "2000",
@@ -33,9 +33,9 @@ const ftroli = {
                             itemCount : 1,
                             status: 1,
                             surface : 1,
-                            message: 'Yanz', //Kasih namalu
+                            message: 'YnzBot', //Kasih namalu
                             orderTitle: 'Bang',
-                            thumbnail: fs.readFileSync('./src/IMG-20220322-WA0026.jpg'), //Gambarnye
+                            thumbnail: fs.readFileSync('./src/mike.jpg'), //Gambarnye
                             sellerJid: '0@s.whatsapp.net'
           
                           }
@@ -49,7 +49,7 @@ const flokasi = {
        message: {
                     locationMessage: {
                     name: 'Russia',
-                    jpegThumbnail: fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
+                    jpegThumbnail: fs.readFileSync('./src/mike.jpg')
                           }
                         }
                       }
@@ -59,7 +59,7 @@ const floc = {
 	 { fromMe: false,
 	 participant: `0@s.whatsapp.net`, ...(m.chat ? 
 	 { remoteJid: "status@broadcast" } : {}) },
-	 message: { "locationMessage": { "title":"jakarta","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')}}
+	 message: { "locationMessage": { "title":"jakarta","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')}}
 	}
 	
 const fliveLoc = {
@@ -67,14 +67,14 @@ const fliveLoc = {
 	 { fromMe: false,
 	 participant: `0@s.whatsapp.net`, ...(m.chat  ? 
 	 { remoteJid: "status@broadcast" } : {}) },
-	 message: { "liveLocationMessage": { "caption":"ANTIBOT","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')}}
+	 message: { "liveLocationMessage": { "caption":"ANTIBOT","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')}}
 	}
 	const fliveLoc2 = {
 	 key:
 	 { fromMe: false,
 	 participant: `0@s.whatsapp.net`, ...(m.chat ? 
 	 { remoteJid: "status@broadcast" } : {}) },
-	 message: { "liveLocationMessage": { "title": "ANTIBOT","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')}}
+	 message: { "liveLocationMessage": { "title": "ANTIBOT","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')}}
 	}
 //FAKEREPLY KONTAK
  const fcon = {
@@ -82,7 +82,7 @@ const fliveLoc = {
 	 { fromMe: false,
 	 participant: `0@s.whatsapp.net`, ...(m.chat ? 
 	 { remoteJid: "status@broadcast" } : {}) },
-	 message: { "contactMessage": { "title":"sri","h": `haloo`, 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')}}
+	 message: { "contactMessage": { "title":"sri","h": `haloo`, 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')}}
 	}
 	
 	const fcona = {
@@ -90,7 +90,7 @@ const fliveLoc = {
 	 { fromMe: false,
 	 participant: `0@s.whatsapp.net`, ...(m.chat ? 
 	 { remoteJid: "status@broadcast" } : {}) },
-	 message: { "contactsArrayMessage": { "title":"antibot","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')}}
+	 message: { "contactsArrayMessage": { "title":"antibot","h": `aloo`, 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')}}
 	}
 	const bugcon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) }, message: { "contactMessage": { "vcard": ""}}}
 //FAKEREPLY DOCUMENT
@@ -101,7 +101,7 @@ const fdocs = {
        message: {
                     documentMessage: {
                     title: 'Halo bang', 
-                    jpegThumbnail: fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
+                    jpegThumbnail: fs.readFileSync('./src/mike.jpg')
                           }
                         }
                       }
@@ -118,7 +118,7 @@ const fvideo = {
                  "h": `Hmm`,
                  'seconds': '99999', 
                  'caption': 'Halo bang',
-                 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
+                 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')
                         }
                        }
 	                  }
@@ -135,7 +135,7 @@ const fgclink = {
 			"inviteCode": "mememteeeekkeke",
 			"groupName": "Mengter", 
             "caption": "Halo bang jagoo", 
-            'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
+            'jpegThumbnail': fs.readFileSync('./src/mike.jpg')
 		}
 	}
 }
@@ -153,7 +153,7 @@ const fgif = {
                  'seconds': '99999', 
                  'gifPlayback': 'true', 
                  'caption': 'Halo bang',
-                 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
+                 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')
                         }
                        }
 	                  } 
@@ -168,7 +168,7 @@ const ftextt = {
 		"extendedTextMessage": {
                  "text":"hallo bang",
                  "title": `Hmm`,
-                 'jpegThumbnail': fs.readFileSync('./src/IMG-20220322-WA0026.jpg')
+                 'jpegThumbnail': fs.readFileSync('./src/mike.jpg')
                         }
 	                  } 
                      }

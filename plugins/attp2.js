@@ -21,6 +21,7 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['attp2 <teks>']
 handler.tags = ['sticker']
 handler.command = /^(attp2)$/i
+handler.premium = true
 handler.limit = true
 //Made By Anshul
 module.exports = handler

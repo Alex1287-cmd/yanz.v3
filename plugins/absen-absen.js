@@ -14,23 +14,22 @@ let handler = async (m, { usedPrefix }) => {
         month: 'long',
         year: 'numeric'
     })
-    let list = absen.map((v, i) => `│ ${i + 1}. @${v.split`@`[0]}`).join('\n')
-    conn.reply(m.chat, `*「 ABSEN 」*
-
-Tanggal: ${date}
+    let list = absen.map((v, i) => `├◪ ${i + 1}. @${v.split`@`[0]}`).join('\n')
+    conn.send2Button(m.chat, `
+*💌 Tanggal:* ${date}
 ${conn.absen[id][2]}
 
-┌ *Yang sudah absen:*
-│ 
+╭───[ *List* ]
 │ Total: ${absen.length}
 ${list}
-│ 
-└────
-
-_by Ynz_`, m, { contextInfo: { mentionedJid: absen } })
+╰───────·····──────
+`,datebot + '\n' + wm, 'Absen', '.absen', 'Cek Absen', '.cekabsen', m, { contextInfo: { mentionedJid: absen } })
 }
 handler.help = ['absen']
 handler.tags = ['absen']
 handler.command = /^(absen|hadir)$/i
 handler.group = true
 module.exports = handler
+
+let wm = global.botwm
+let datebot = global.botdate
